@@ -11,22 +11,22 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ route('admin.customer.store') }}" method="post">
+                <form action="{{ route('admin.makanan.store') }}" method="post">
                     {{ csrf_field() }}
 
-                    <div class="form-group">
-                        <label for="">Nama Lengkap</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap">
+                    <div class="form-group"> 
+                        <label for="">Nama Menu</label>
+                        <input type="text" name="namaMenu" class="form-control" placeholder="Nama Menu">
                     </div>
 
                     <div class="form-group">
-                        <label for="">No Telepon</label>
-                        <input type="text" name="noTelp" class="form-control" placeholder="no telepon">
+                        <label for="">Jumlah</label>
+                        <input type="number" name="jumlah" class="form-control" placeholder="Jumlah">
                     </div>
 
                     <div class="form-group">
-                        <label for="">Id Card</label>
-                        <input type="text" name="idCard" class="form-control" placeholder="Id Card">
+                        <label for="">Harga</label>
+                        <input type="number" name="harga" class="form-control" placeholder="Harga">
                     </div>
 
                     <div class="form-group">

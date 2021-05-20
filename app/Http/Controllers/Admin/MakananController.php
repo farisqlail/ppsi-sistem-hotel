@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Customer;
+use App\Models\MenuMakanan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +12,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Paginator;
 
-class CustomerController extends Controller
+class MakananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +21,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customer = Customer::all();
-
-        return view('admin.customer.index', compact('customer'));
+        $makanan = MenuMakanan::all();
+        
+        return view('admin.makanan.index', compact('makanan'));
     }
 
     /**
@@ -33,7 +33,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('admin.customer.create');
+        return view('admin.makanan.create');
     }
 
     /**
@@ -44,15 +44,15 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        Alert::success('Success', 'Berhasil menambah data customer');
+        Alert::success('Success', 'Berhasil menambah data menu makanan');
 
-        Customer::create([
-            'nama' => request('nama'),
-            'noTelp' => request('noTelp'),
-            'idCard' => request('idCard')
+        MenuMakanan::create([
+            'namaMenu' => request('namaMenu'),
+            'jumlah' => request('jumlah'),
+            'harga' => request('harga')
         ]);
 
-        return redirect()->route('admin.customer.index');
+        return redirect()->route('admin.makanan.index');
     }
 
     /**
@@ -72,9 +72,9 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit(MenuMakanan $makanan)
     {
-        return view('admin.customer.edit', compact('customer'));
+        return view('admin.makanan.edit', compact('makanan'));
     }
 
     /**
@@ -84,17 +84,17 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, MenuMakanan $makanan)
     {
-        Alert::success('Success', 'Berhasil mengedit data customer');
+        Alert::success('Success', 'Berhasil menedit data menu makanan');
 
-        $customer->update([
-            'nama' => request('nama'),
-            'noTelp' => request('noTelp'),
-            'idCard' => request('idCard')
+        $makanan->update([
+            'namaMenu' => request('namaMenu'),
+            'jumlah' => request('jumlah'),
+            'harga' => request('harga')
         ]);
 
-        return redirect()->route('admin.customer.index');
+        return redirect()->route('admin.makanan.index');
     }
 
     /**
@@ -103,11 +103,11 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(MenuMakanan $makanan)
     {
-        $customer->delete();
-        Alert::success('Success', 'Berhasil menghapus data customer');
+        $makanan->delete();
+        Alert::success('Success', 'Berhasil menghapus data menu makanan');
 
-        return redirect()->route('admin.customer.index');
+        return redirect()->route('admin.makanan.index');
     }
 }

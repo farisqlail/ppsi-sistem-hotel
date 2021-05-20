@@ -32,6 +32,12 @@
         </li>
 
         <li class="nav-item active">
+          <a class="nav-link" href="{{ url('makanan') }}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Menu Makanan</span></a>
+      </li>
+
+        <li class="nav-item active">
             <a class="nav-link" href="">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Cek out Customer</span></a>
