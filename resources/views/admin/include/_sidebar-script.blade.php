@@ -1,12 +1,12 @@
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/admin') }}">
           <div class="sidebar-brand-icon">
           <img src="{{ asset('assets/img/logo.png') }}" width="35px" alt="">
           </div>
-          <div class="sidebar-brand-text mx-3">Administrator</div>
+          <div class="sidebar-brand-text mx-3">Varna Culture Hotel</div>
         </a>
   
         <!-- Divider -->
@@ -20,9 +20,9 @@
         </li>
 
         <li class="nav-item active">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ url('customer') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Data Custoemr</span></a>
+            <span>Data Customer</span></a>
         </li>
 
         <li class="nav-item active">
