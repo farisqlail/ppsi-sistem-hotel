@@ -11,7 +11,7 @@ class MenuMakanan extends Model
 
     protected $fillable = [
       
-        'NamaMenu',
+        'namaMenu',
         'Jumlah',
         'Harga'
     ];
