@@ -8,5 +8,5 @@ Auth::routes();
 //     return view('welcome');
 // });
 
-require('frontend.php');
+require('admin.php');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
