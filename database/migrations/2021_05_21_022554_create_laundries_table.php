@@ -16,8 +16,8 @@ class CreateLaundriesTable extends Migration
         Schema::create('laundries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('idKamar')->index();
-            $table->string('JenisLaudri');
-            $table->bigInteger('Total');
+            $table->string('tenisLaudri');
+            $table->bigInteger('total');
             $table->timestamps();
         });
     }

@@ -10,9 +10,12 @@ class Kamar extends Model
     use HasFactory;
 
     protected $fillable = [
-       
         'ketersediaanKamar',
         'jenisKamar'
     ];
     
+    public function laundry(){
+
+        return $this->belongsTo(Laundry::class);
+    }
 }

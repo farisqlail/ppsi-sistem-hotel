@@ -46,10 +46,12 @@ class MakananController extends Controller
     {
         Alert::success('Success', 'Berhasil menambah data menu makanan');
 
+        $harga = str_replace('.','',request('harga'));
+
         MenuMakanan::create([
             'namaMenu' => request('namaMenu'),
             'jumlah' => request('jumlah'),
-            'harga' => request('harga')
+            'harga' => $harga
         ]);
 
         return redirect()->route('admin.makanan.index');
@@ -88,10 +90,12 @@ class MakananController extends Controller
     {
         Alert::success('Success', 'Berhasil menedit data menu makanan');
 
+        $harga = str_replace('.','',request('harga'));
+
         $makanan->update([
             'namaMenu' => request('namaMenu'),
             'jumlah' => request('jumlah'),
-            'harga' => request('harga')
+            'harga' => $harga
         ]);
 
         return redirect()->route('admin.makanan.index');

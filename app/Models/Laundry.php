@@ -11,10 +11,14 @@ class Laundry extends Model
     use HasFactory;
 
     protected $fillable = [
-      
         'idKamar',
-        'JenisLaudri',
-        'Total'
+        'jenisLaudri',
+        'jotal'
     ];
+
+    public function kamar(){
+
+        return $this->hasMany(Kamar::class);
+    }
 
 }
