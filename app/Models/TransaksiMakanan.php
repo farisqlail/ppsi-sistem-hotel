@@ -12,7 +12,7 @@ class TransaksiMakanan extends Model
     protected $fillable = [
         'idMenu',
         'idCekIn',
-        'Harga'
+        'harga'
     ];
 
 }

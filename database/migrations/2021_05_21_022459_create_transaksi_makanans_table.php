@@ -17,7 +17,7 @@ class CreateTransaksiMakanansTable extends Migration
             $table->id();
             $table->foreignId('idMenu')->index();
             $table->foreignId('idCekin')->index();
-            $table->bigInteger('Harga');
+            $table->bigInteger('harga');
             $table->timestamps();
         });
     }

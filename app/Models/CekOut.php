@@ -11,7 +11,7 @@ class CekOut extends Model
 
     protected $fillable = [
         'idPesanMakanan',
-        'Pelanggaran',
-        'Total'
+        'pelanggaran',
+        'total'
     ];
 }

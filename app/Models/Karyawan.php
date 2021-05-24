@@ -11,10 +11,15 @@ class Karyawan extends Model
 
     protected $fillable = [
         
-        'NamaKaryawan',
-        'PasswordKaryawan',
-        'JenisKelamin',
-        'TangalLahir'
+        'namaKaryawan',
+        'passwordKaryawan',
+        'jenisKelamin',
+        'tangalLahir'
     ];
+
+    public function CekInCustomer(){
+
+        return $this->belongsTo(CekInCustomer::class);
+    }
 
 }

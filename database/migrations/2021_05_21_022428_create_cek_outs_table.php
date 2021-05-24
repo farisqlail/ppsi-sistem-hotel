@@ -18,8 +18,8 @@ class CreateCekOutsTable extends Migration
             $table->id() ;
             $table->foreignId('idCekIn')->index();
             $table->foreignId('idPesanMakanan')->index();
-            $table->bigInteger('Pelanggaran');
-            $table->bigInteger('Total');
+            $table->bigInteger('pelanggaran');
+            $table->bigInteger('total');
             $table->timestamps();
         });
     }

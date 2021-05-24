@@ -15,10 +15,10 @@ class CreateKaryawansTable extends Migration
     {
         Schema::create('karyawans', function (Blueprint $table) {
             $table->id();
-            $table->string('NamaKaryawan');
-            $table->string('PasswordKaryawan');
-            $table->String('JenisKelamin');
-            $table->date('TanggalLahir');
+            $table->string('namaKaryawan');
+            $table->string('passwordKaryawan');
+            $table->String('jenisKelamin');
+            $table->date('tanggalLahir');
         });
     }
 

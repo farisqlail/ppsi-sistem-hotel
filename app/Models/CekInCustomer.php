@@ -23,6 +23,16 @@ class CekInCustomer extends Model
 
     public function customer(){
 
-        return $this->hasMany(Customer::class);
+        return $this->hasOne(Customer::class);
+    }
+
+    public function kamar(){
+        
+        return $this->hasOne(Kamar::class);
+    }
+
+    public function karyawan(){
+
+        return $this->hasOne(Karyawan::class);
     }
 }
