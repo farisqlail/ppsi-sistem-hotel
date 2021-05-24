@@ -6,7 +6,8 @@ use App\Http\Controllers\CustomerController\Admin;
 Route::name('admin.')->group(function () {
     Route::group(
         [
-            'namespace' => 'Admin'
+            'namespace' => 'Admin',
+            'middleware' => 'auth'
         ],
         function () {
             Route::get('/', function () {
