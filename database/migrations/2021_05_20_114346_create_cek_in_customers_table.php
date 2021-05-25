@@ -15,14 +15,12 @@ class CreateCekInCustomersTable extends Migration
     {
         Schema::create('cek_in_customers', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('idCustomer');
-            $table->bigInteger('noTelp');
-            $table->string('idKaryawan');
+            $table->foreignId('idCustomer')->index();
+            $table->foreignId('idKaryawan')->index();
+            $table->foreignId('idKamar')->index();
             $table->bigInteger('deposit');
             $table->string('jenisPembayaran');
-            $table->date('tglCekIn');
-            $table->date('tglCekOut');
+            $table->string('status')->index();
             $table->timestamps();
         });
     }

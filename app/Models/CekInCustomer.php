@@ -10,13 +10,15 @@ class CekInCustomer extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama',
-        'noTelp',
+
+        'idCustomer',
         'idKaryawan',
+        'idKamar',
         'deposit',
         'jenisPembayaran',
         'tglCekIn',
-        'tglCekOut'
+        'status'
+
     ];
 
     public function customer(){

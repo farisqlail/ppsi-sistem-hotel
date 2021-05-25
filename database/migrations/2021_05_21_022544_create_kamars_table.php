@@ -17,6 +17,7 @@ class CreateKamarsTable extends Migration
             $table->id();
             $table->string('KetersediaanKamar');
             $table->string('JenisKamar');
+            $table->bigInteger('harga');
             $table->timestamps();
         });
     }
