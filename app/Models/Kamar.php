@@ -10,7 +10,6 @@ class Kamar extends Model
     use HasFactory;
 
     protected $fillable = [
-       
         'Ketersediaankamar',
         'JenisKamar',
         'harga'

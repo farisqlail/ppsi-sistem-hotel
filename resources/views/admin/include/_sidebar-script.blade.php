@@ -1,116 +1,80 @@
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/admin') }}">
-          <div class="sidebar-brand-icon">
-          <img src="{{ asset('assets/img/logo.png') }}" width="35px" alt="">
-          </div>
-          <div class="sidebar-brand-text mx-3">Administrator</div>
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/admin') }}">
+            <div class="sidebar-brand-icon">
+                <img src="{{ asset('assets/img/logo.png') }}" width="35px" alt="">
+            </div>
+            <div class="sidebar-brand-text mx-3">Varna Culture Hotel</div>
         </a>
-  
+
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
-  
+
+        <div class="sidebar-heading mt-3">
+            Master Data
+        </div>
+
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Cek in Customer</span></a>
+            <a class="nav-link" href="{{ url('customer') }}">
+                <i class="fas fa-fw fa-id-card"></i>
+                <span>Data Customer</span></a>
         </li>
 
         <li class="nav-item active">
-            <a class="nav-link" href="">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Data Custoemr</span></a>
+            <a class="nav-link" href="{{ url('makanan') }}">
+                <i class="fas fa-fw fa-hamburger"></i>
+                <span>Menu Makanan</span></a>
         </li>
 
         <li class="nav-item active">
-            <a class="nav-link" href="">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Pesan Makanan</span></a>
-        </li>
-
-        <li class="nav-item active">
-            <a class="nav-link" href="">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Cek out Customer</span></a>
-        </li>
-
-        <li class="nav-item active">
-          <a class="nav-link" href="">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Laundry</span></a>
+          <a class="nav-link" href="{{ url('kamar') }}">
+              <i class="fas fa-fw fa-bed"></i>
+              <span>Data Kamar</span></a>
       </li>
-{{--   
-        <!-- Divider -->
+
         <hr class="sidebar-divider">
-  
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/daftar-admin') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Pendaftaran</span></a>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Transaksi
+        </div>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Cek in Customer</span></a>
         </li>
 
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true" aria-controls="collapsePages">
-              <i class="fas fa-fw fa-poll"></i>
-              <span>Berita</span>
-            </a>
-            <div id="berita" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ url('/berita-admin') }}">List Berita</a>
-              <a class="collapse-item" href="{{ route('frontend.berita-admin.create') }}">Tambah Berita</a>
-              </div>
-            </div>
-          </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="">
+                <i class="fas fa-fw fa-utensils"></i>
+                <span>Pesan Makanan</span></a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#profile" aria-expanded="true" aria-controls="collapsePages">
-              <i class="fas fa-fw fa-id-badge"></i>
-              <span>Profile</span>
-            </a>
-            <div id="profile" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ url('/tentang-admin') }}">Tentang</a>
-                <a class="collapse-item" href="{{ url('/visi-admin') }}">Visi Misi</a>
-                <a class="collapse-item" href="{{ url('/akreditasi-admin') }}">Akreditasi</a>
-                <a class="collapse-item" href="{{ url('/beasiswa-admin') }}">Beasiswa</a>
-                <a class="collapse-item" href="{{ url('/staff-admin') }}">Staff</a>
-                <a class="collapse-item" href="{{ url('/kurikulum-admin') }}">Kurikulum & <br> Pembelajaran</a>
-                <a class="collapse-item" href="{{ url('/galeri-admin') }}">Galeri</a>
-              </div>
-            </div>
-          </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="">
+                <i class="fas fa-fw fa-door-open"></i>
+                <span>Cek out Customer</span></a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kegiatan" aria-expanded="true" aria-controls="collapsePages">
-              <i class="fas fa-fw fa-snowboarding"></i>
-              <span>Kegiatan</span>
-            </a>
-            <div id="kegiatan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ url('/prestasi-admin') }}">Prestasi Siswa</a>
-                <a class="collapse-item" href="{{ url('/kegiatanPenunjang-admin') }}">Kegiatan Penunjang</a>
-                <a class="collapse-item" href="{{ url('/ekstra-admin') }}">Ekstrakurikuler</a>
-                <a class="collapse-item" href="{{ url('/kategoriEkstra-admin') }}">Kategori <br> Ekstrakurikuler</a>
-              </div>
-            </div>
-          </li> --}}
-     
+        <li class="nav-item active">
+            <a class="nav-link" href="">
+                <i class="fas fa-fw fa-camera-retro"></i>
+                <span>Laundry</span></a>
+        </li>
 
-
-  
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
-  
+
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
-          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
-  
-      </ul>
-      <!-- End of Sidebar -->
-    
-@stack('sidebar-scripts')
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    @stack('sidebar-scripts')
