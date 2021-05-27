@@ -31,6 +31,8 @@ Route::name('admin.')->group(function () {
             //Route Kamar
             Route::get('/kamar/{kamar}/delete', '\App\Http\Controllers\Admin\KamarController@destroy')->name('kamar.delete');
             Route::resource('kamar', '\App\Http\Controllers\Admin\KamarController');
+
+            //komen
         }
     );
 });
