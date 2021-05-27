@@ -61,7 +61,7 @@
         </li>
 
         <li class="nav-item active">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ url('/laundry') }}">
                 <i class="fas fa-fw fa-camera-retro"></i>
                 <span>Laundry</span></a>
         </li>
