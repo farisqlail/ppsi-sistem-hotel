@@ -8,7 +8,7 @@ Route::name('admin.')->group(function () {
     Route::group(
         [
             'namespace' => 'Admin',
-            'middleware' => 'auth'
+            'middleware' => ['auth', 'role:admin']
             // 'middleware' => ['auth', 'CheckRole:user']
         ],
         function () {
