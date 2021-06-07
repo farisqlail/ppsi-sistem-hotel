@@ -3,16 +3,20 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController\Admin;
 
+
 Route::name('admin.')->group(function () {
     Route::group(
         [
             'namespace' => 'Admin',
             'middleware' => 'auth'
+            // 'middleware' => ['auth', 'CheckRole:user']
         ],
         function () {
             Route::get('/', function () {
-                return view('admin.layouts');
-            });
+                return view('admin.dashboard');
+            })->name('admin.dashboard');
+
+            Route::get('DashboardAdmin', '\App\Http\Controllers\Admin\CustomerController@index')->name('admin.dash');
 
             //Routes Customer
             Route::get('/customer/{customer}/delete', '\App\Http\Controllers\Admin\CustomerController@destroy')->name('customer.delete');

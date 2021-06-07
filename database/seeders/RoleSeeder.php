@@ -14,19 +14,11 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        Role::create([
-            'name' => 'admin',
-            'guard_name' => 'web'
-        ]);
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        Role::create([
-            'name' => 'karyawan',
-            'guard_name' => 'web'
-        ]);
-
-        Role::create([
-            'name' => 'hrd',
-            'guard_name' => 'web'
-        ]);
+        Role::create(['name' => 'admin']);
+        Role::create(['name' => 'karyawan']);
+        Role::create(['name' => 'hrd']);
+        
     }
 }
