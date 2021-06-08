@@ -46,9 +46,9 @@ Route::name('admin.')->group(function () {
             // 'middleware' => ['auth', 'CheckRole:user']
         ],
         function () {
-            // Route::get('/', function () {
-            //     return view('hrd.dashboard');
-            // })->name('hrd.dashboard');
+            Route::get('/hrd', function () {
+                return view('hrd.dashboard');
+            })->name('hrd.dashboard');
 
             Route::get('DashboardHrd', '\App\Http\Controllers\Admin\HomeController@hrd')->name('hrd.dash');
 
