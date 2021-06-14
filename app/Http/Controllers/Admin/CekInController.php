@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\CekIn;
+use App\Models\CekInCustomer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +15,7 @@ class CekInController extends Controller
      */
     public function index()
     {
-        $cekIn = CekIn::all();
+        $cekIn = CekInCustomer::all();
 
         return view('admin.cekIn.index', compact('cekIn'));
     }

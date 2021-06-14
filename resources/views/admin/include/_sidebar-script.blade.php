@@ -10,6 +10,19 @@
         </a>
 
         <!-- Divider -->
+        <hr class="sidebar-divider mt-3">
+
+        <div class="sidebar-heading mt-3">
+            Dashboard
+        </div>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ url('/DashboardAdmin') }}">
+                <i class="fas fa-fw fa-id-card"></i>
+                <span>Dashboard</span></a>
+        </li>
+
+        <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
         <div class="sidebar-heading mt-3">
@@ -43,7 +56,7 @@
         </div>
 
         <li class="nav-item active">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ url('cek-in') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Cek in Customer</span></a>
         </li>
