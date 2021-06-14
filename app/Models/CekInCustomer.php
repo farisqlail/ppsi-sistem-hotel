@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CekInCustomer extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'namaCustomer',
         'namaKaryawan',
@@ -16,7 +16,7 @@ class CekInCustomer extends Model
         'jumlahTamu',
         'tanggalCekOut',
         'deposit',
-        'tipeKamar',
+        'type_id',
         'noKamar'
     ];
 

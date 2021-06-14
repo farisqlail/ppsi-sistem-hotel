@@ -31,12 +31,13 @@ class HomeController extends Controller
         $kamarCount = $kamar->count();
 
         $cekIn = CekInCustomer::all();
+        $cekInDash = CekInCustomer::orderBy('id', 'desc')->get();
         $cekInCount = $cekIn->count();
 
         $customer = Customer::all();
         $customerCount = $customer->count();
 
-        return view('admin.dashboard', compact('kamarCount', 'cekInCount', 'customerCount'));
+        return view('admin.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash'));
     }
 
     public function hrd(){

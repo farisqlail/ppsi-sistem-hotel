@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Kamar;
+use App\Models\TypeKamar;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,9 @@ class KamarController extends Controller
      */
     public function create()
     {
-        return view('admin.kamar.create');
+        $typeKamar = TypeKamar::all();
+
+        return view('admin.kamar.create', compact('typeKamar'));
     }
 
     /**
@@ -47,8 +50,8 @@ class KamarController extends Controller
         Alert::success('Success', 'Berhasil menambah data kamar');
 
         Kamar::create([
-            'tipeKamar' => request('tipeKamar'),
-            'jenisKamar' => request('jenisKamar'),
+            'noKamar' => request('noKamar'),
+            'type_id' => request('type_id'),
             'kapasitas' => request('kapasitas'),
             'jenisKasur' => request('jenisKasur'),
             'harga' => request('harga'),
@@ -77,7 +80,9 @@ class KamarController extends Controller
      */
     public function edit(Kamar $kamar)
     {
-        return view('admin.kamar.edit', compact('kamar'));
+        $typeKamar = TypeKamar::all();
+
+        return view('admin.kamar.edit', compact('kamar', 'typeKamar'));
     }
 
     /**
@@ -92,9 +97,8 @@ class KamarController extends Controller
         Alert::success('Success', 'Berhasil mengedit data kamar');
 
         $kamar->update([
-
-            'tipeKamar' => request('tipeKamar'),
-            'jenisKamar' => request('jenisKamar'),
+            'noKamar' => request('noKamar'),
+            'type_id' => request('type_id'),
             'kapasitas' => request('kapasitas'),
             'jenisKasur' => request('jenisKasur'),
             'harga' => request('harga'),
