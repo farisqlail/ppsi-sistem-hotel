@@ -32,6 +32,7 @@
                     <div class="form-group">
                         <button class="btn btn-primary float-right" value="save" type="submit">Tambah</button>
                     </div>
+                    
                 </form>
 
             </div>
