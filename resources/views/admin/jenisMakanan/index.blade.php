@@ -6,7 +6,7 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Data Menu Makanan</h1>
-            <a href="{{ route('admin.makanan.create') }}"
+            <a href="{{ route('admin.JenisMakanan.create') }}"
                 class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"><i
                     class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Menu Makanan</a>
         </div>
@@ -20,12 +20,14 @@
                     <table class="table table-bordered" id="tableMakanan" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Jenis Makanan</th>
+                                <th>Jenis Menu</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Jenis Makanan</th>
+                                <th>Jenis Menu</th>
+                                <th>Action</th>
                             </tr>
                         </tfoot>
                         <tbody>
