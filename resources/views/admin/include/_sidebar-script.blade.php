@@ -48,6 +48,12 @@
               <span>Kamar</span></a>
       </li>
 
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url('typeKamar') }}">
+            <i class="fas fa-fw fa-bed"></i>
+            <span>Type Kamar</span></a> 
+        </li>
+
         <hr class="sidebar-divider">
 
         <!-- Heading -->
