@@ -42,16 +42,19 @@
                 <span>Menu Makanan</span></a>
         </li>
 
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url('kamar') }}">
-              <i class="fas fa-fw fa-bed"></i>
-              <span>Kamar</span></a>
-      </li>
-
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ url('typeKamar') }}">
-            <i class="fas fa-fw fa-bed"></i>
-            <span>Type Kamar</span></a> 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kamar"
+                aria-expanded="true" aria-controls="kamar">
+                <i class="fas fa-fw fa-bed"></i>
+                <span>Kamar</span>
+            </a>
+            <div id="kamar" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Kamar</h6>
+                    <a class="nav-link text-dark" href="{{ url('kamar') }}">Kamar</a>
+                    <a class="nav-link text-dark" href="{{ url('typeKamar') }}">Type Kamar</a>
+                </div>
+            </div>
         </li>
 
         <hr class="sidebar-divider">
