@@ -22,7 +22,10 @@ Route::name('admin.')->group(function () {
             Route::resource('customer', '\App\Http\Controllers\Admin\CustomerController');
 
             //CekIn
-            Route::resource('cek-in', '\App\Http\Controllers\Admin\CekInController');
+            Route::get('/cekIn/{cekIn}/delete', '\App\Http\Controllers\Admin\CekInController@destroy')->name('cekIn.delete');
+            // Route::get('/cekIn/{cek_in}/edit', '\App\Http\Controllers\Admin\CekInController@edit')->name('cekIn.edit');
+            // Route::patch('/cekIn/{cek_in}', '\App\Http\Controllers\Admin\CekInController@update')->name('cekIn.update');
+            Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
 
             //Route Laundry
             Route::resource('laundry', '\App\Http\Controllers\Admin\LaundryController');
@@ -57,7 +60,7 @@ Route::name('admin.')->group(function () {
             // Route::resource('customer', '\App\Http\Controllers\Admin\CustomerController');
 
             // //CekIn
-            // Route::resource('cek-in', '\App\Http\Controllers\Admin\CekInController');
+            // Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
 
             // //Route Laundry
             // Route::resource('laundry', '\App\Http\Controllers\Admin\LaundryController');
