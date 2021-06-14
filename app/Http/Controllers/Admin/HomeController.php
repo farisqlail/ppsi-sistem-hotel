@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Kamar;
+use App\Models\Customer;
+use App\Models\CekInCustomer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,7 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $kamar = Kamar::all();
+        $kamarCount = $kamar->count();
+
+        $cekIn = CekInCustomer::all();
+        $cekInCount = $cekIn->count();
+
+        $customer = Customer::all();
+        $customerCount = $customer->count();
+
+        return view('admin.dashboard', compact('kamarCount', 'cekInCount', 'customerCount'));
     }
 
     public function hrd(){
