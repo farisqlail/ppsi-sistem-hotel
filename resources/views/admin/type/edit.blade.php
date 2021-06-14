@@ -11,19 +11,14 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ route('admin.typeKamar.update', $kamar) }}" method="post">
+                <form action="{{ route('admin.type.update', $typeKamar) }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
 
                     <div class="form-group"> 
-                        <label for="">Ketersediaan</label>
-                        <input type="text" name="ketersediaanKamar" class="form-control" value="{{ $kamar->ketersediaanKamar }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Jenis Kamar</label>
-                        <input type="text" name="jenisKamar" class="form-control" value="{{ $kamar->jenisKamar }}">
-                    </div>
+                        <label for="">Type Kamar</label>
+                        <input type="text" name="typeKamar" class="form-control" value="{{ $typeKamar->typeKamar }}">
+                    </div> 
 
                     <div class="form-group">
                         <button class="btn btn-primary float-right" value="save" type="submit">Edit</button>

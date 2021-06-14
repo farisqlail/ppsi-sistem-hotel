@@ -86,7 +86,7 @@ class TypeKamarController extends Controller
      */
     public function update(Request $request, typeKamar $typeKamar)
     {
-        Alert::success('Success', 'Berhasil menedit data TypeKamar');
+        Alert::success('Success', 'Berhasil mengedit data TypeKamar');
 
         // $harga = str_replace('.','',request('harga'));
 
