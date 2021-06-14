@@ -6,7 +6,7 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Data Cek In Customer</h1>
-            <a href="{{ route('admin.kamar.create') }}"
+            <a href="{{ route('admin.cekIn.create') }}"
                 class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"><i
                     class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Cek In Customer</a>
         </div>
@@ -20,37 +20,49 @@
                     <table class="table table-bordered" id="tableCekIn" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ID Customer</th>
-                                <th>ID Karyawan</th>
-                                <th>ID Kamar</th>
-                                <th>Deposit</th>
-                                <th>Jenis Pembayaran</th>
-                                <th>Status</th>
+                               <th>Nama Customer</th>
+                               <th>Nama Karyawan</th>
+                               <th>Tanggal Cek In</th>
+                               <th>Jumlah Tamu</th>
+                               <th>Tanggal Cek Out</th>
+                               <th>Tipe Kamar</th>
+                               <th>Nomor Kamar</th>
+                               <th>Deposit</th>
+                               <th>Action</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>ID Customer</th>
-                                <th>ID Karyawan</th>
-                                <th>ID Kamar</th>
+                                <th>Nama Customer</th>
+                                <th>Nama Karyawan</th>
+                                <th>Tanggal Cek In</th>
+                                <th>Jumlah Tamu</th>
+                                <th>Tanggal Cek Out</th>
+                                <th>Tipe Kamar</th>
+                                <th>Nomor Kamar</th>
                                 <th>Deposit</th>
-                                <th>Jenis Pembayaran</th>
-                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </tfoot>
                         <tbody>
 
-                            {{-- @foreach ($kamar as $kmr)
+                            @foreach ($cekInCustomer as $cekIn)
                             <tr>
-                                <td>{{ $kmr->ketersediaanKamar }}</td>
-                                <td>{{ $kmr->jenisKamar }}</td>
+                                <td>{{ $cekIn->namaCustomer }}</td>
+                                <td>{{ $cekIn->namaKaryawan }}</td>
+                                <td>{{ $cekIn->tanggalCekIn }}</td>
+                                <td>{{ $cekIn->jumlahTamu }}</td>
+                                <td>{{ $cekIn->tanggalCekOut }}</td>
+                                <td>{{ $cekIn->tipeKamar }}</td>
+                                <td>{{ $cekIn->noKamar }}</td>
+                                <td>{{ $cekIn->deposit }}</td>
                                 <td>
-                                    <a href="{{ route('admin.kamar.edit', $kmr) }}" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('admin.kamar.delete', $kmr->id) }}"
+                                    <a href="{{ route('admin.cekIn.edit', $cekIn) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('admin.cekIn.delete', $cekIn->id) }}"
                                         class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
-                            @endforeach --}}
+                            @endforeach
 
                         </tbody>
                     </table>

@@ -8,17 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class CekInCustomer extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = [
-
-        'idCustomer',
-        'idKaryawan',
-        'idKamar',
+        'namaCustomer',
+        'namaKaryawan',
+        'tanggalCekIn',
+        'jumlahTamu',
+        'tanggalCekOut',
         'deposit',
-        'jenisPembayaran',
-        'tglCekIn',
-        'status'
-
+        'tipeKamar',
+        'noKamar'
     ];
 
     public function customer(){

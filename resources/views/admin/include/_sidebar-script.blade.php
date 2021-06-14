@@ -62,7 +62,7 @@
         </div>
 
         <li class="nav-item active">
-            <a class="nav-link" href="{{ url('cek-in') }}">
+            <a class="nav-link" href="{{ url('cekIn') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Cek in Customer</span></a>
         </li>
