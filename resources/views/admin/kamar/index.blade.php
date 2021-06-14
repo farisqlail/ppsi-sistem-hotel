@@ -20,8 +20,8 @@
                     <table class="table table-bordered" id="tableKamar" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>No Kamar</th>
                                 <th>Tipe Kamar</th>
-                                <th>Jenis Kamar</th>
                                 <th>Kapasitas</th>
                                 <th>Jenis Kasur</th>
                                 <th>Harga</th>
@@ -31,8 +31,8 @@
                         </thead>
                         <tfoot>
                             <tr>
+                                <th>No Kamar</th>
                                 <th>Tipe Kamar</th>
-                                <th>Jenis Kamar</th>
                                 <th>Kapasitas</th>
                                 <th>Jenis Kasur</th>
                                 <th>Harga</th>
@@ -44,9 +44,9 @@
 
                             @foreach ($kamar as $kmr)
                             <tr>
-                                <td>{{ $kmr->tipeKamar }}</td>
-                                <td>{{ $kmr->jenisKamar }}</td>
-                                <td>{{ $kmr->kapasitas }}</td>
+                                <td>{{ $kmr->noKamar }}</td>
+                                <td>{{ $kmr->type->typeKamar }}</td>
+                                <td>{{ $kmr->kapasitas }} Orang</td>
                                 <td>{{ $kmr->jenisKasur }}</td>
                                 <td>{{ $kmr->harga }}</td>
                                 <td>{{ $kmr->includeBreakfast }}</td>

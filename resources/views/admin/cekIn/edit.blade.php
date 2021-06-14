@@ -71,9 +71,11 @@
                         <div class="col-md-6">
                             <div class="form-group"> 
                                 <label for="">Tipe Kamar</label>
-                                <select class="form-control" name="tipeKamar">
+                                <select class="form-control" name="type_id">
                                     <option selected>Pilih Tipe Kamar</option>
-                                    <option value="deluxe">Deluxe</option>
+                                    @foreach ($typeKamar as $tKamar)
+                                        <option value="{{ $tKamar->id }}">{{ $tKamar->typeKamar }}</option>
+                                    @endforeach
                                   </select>
                             </div>
                         </div>

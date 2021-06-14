@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\CekInCustomer;
+use App\Models\TypeKamar;
+use App\Models\Kamar;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +42,10 @@ class CekInController extends Controller
      */
     public function create()
     {
-        return view('admin.cekIn.create');
+        $typeKamar = TypeKamar::all();
+        $kamar = Kamar::all();
+
+        return view('admin.cekIn.create', compact('typeKamar', 'kamar'));
     }
 
     /**
@@ -60,7 +65,7 @@ class CekInController extends Controller
             'jumlahTamu' => request('jumlahTamu'),
             'tanggalCekOut' => request('tanggalCekOut'),
             'deposit' => request('deposit'),
-            'tipeKamar' => request('tipeKamar'),
+            'type_id' => request('type_id'),
             'noKamar' => request('noKamar')
         ]);
 
@@ -86,8 +91,10 @@ class CekInController extends Controller
      */
     public function edit(CekInCustomer $cekIn)
     {
-        // dd($cekInCustomer);
-        return view('admin.cekIn.edit', compact('cekIn'));
+        $typeKamar = TypeKamar::all();
+        $kamar = Kamar::all();
+
+        return view('admin.cekIn.edit', compact('cekIn', 'typeKamar', 'kamar'));
     }
 
     /**
@@ -108,7 +115,7 @@ class CekInController extends Controller
             'jumlahTamu' => request('jumlahTamu'),
             'tanggalCekOut' => request('tanggalCekOut'),
             'deposit' => request('deposit'),
-            'tipeKamar' => request('tipeKamar'),
+            'type_id' => request('type_id'),
             'noKamar' => request('noKamar')
         ]);
 

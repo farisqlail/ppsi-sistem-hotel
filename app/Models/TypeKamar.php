@@ -12,4 +12,5 @@ class TypeKamar extends Model
     protected $fillable = [
         'typeKamar'
     ];
+
 }

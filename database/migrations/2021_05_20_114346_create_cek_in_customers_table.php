@@ -21,7 +21,7 @@ class CreateCekInCustomersTable extends Migration
             $table->integer('jumlahTamu');
             $table->string('tanggalCekOut');
             $table->integer('deposit');
-            $table->string('tipeKamar');
+            $table->bigInteger('type_id');
             $table->integer('noKamar');
             $table->timestamps();
         });
