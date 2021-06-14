@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ route('admin.type.update', $typeKamar) }}" method="post">
+                <form action="{{ route('admin.typeKamar.update', $typeKamar) }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
 

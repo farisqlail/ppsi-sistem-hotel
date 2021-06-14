@@ -47,8 +47,12 @@ class KamarController extends Controller
         Alert::success('Success', 'Berhasil menambah data kamar');
 
         Kamar::create([
-            'ketersediaanKamar' => request('ketersediaanKamar'),
-            'jenisKamar' => request('jenisKamar')
+            'tipeKamar' => request('tipeKamar'),
+            'jenisKamar' => request('jenisKamar'),
+            'kapasitas' => request('kapasitas'),
+            'jenisKasur' => request('jenisKasur'),
+            'harga' => request('harga'),
+            'includeBreakfast' => request('includeBreakfast')
         ]);
 
         return redirect()->route('admin.kamar.index');
@@ -88,8 +92,14 @@ class KamarController extends Controller
         Alert::success('Success', 'Berhasil mengedit data kamar');
 
         $kamar->update([
-            'ketersediaanKamar' => request('ketersediaanKamar'),
-            'jenisKamar' => request('jenisKamar')
+
+            'tipeKamar' => request('tipeKamar'),
+            'jenisKamar' => request('jenisKamar'),
+            'kapasitas' => request('kapasitas'),
+            'jenisKasur' => request('jenisKasur'),
+            'harga' => request('harga'),
+            'includeBreakfast' => request('includeBreakfast')
+
         ]);
 
         return redirect()->route('admin.kamar.index');

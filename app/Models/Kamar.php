@@ -10,14 +10,18 @@ class Kamar extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ketersediaankamar',
+
+        'tipeKamar',
         'jenisKamar',
-        'harga'
+        'kapasitas',
+        'jenisKasur',
+        'harga',
+        'includeBreakfast'
     ];
 
-    public function CekInCustomer(){
+    public function CekInCustomer()
+    {
 
         return $this->belongsTo(CekInCustomer::class);
     }
-    
 }

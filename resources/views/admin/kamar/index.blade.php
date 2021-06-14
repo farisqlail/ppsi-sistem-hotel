@@ -20,15 +20,23 @@
                     <table class="table table-bordered" id="tableKamar" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Ketersediaan</th>
+                                <th>Tipe Kamar</th>
                                 <th>Jenis Kamar</th>
+                                <th>Kapasitas</th>
+                                <th>Jenis Kasur</th>
+                                <th>Harga</th>
+                                <th>Include Breakfast</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Ketersediaan</th>
+                                <th>Tipe Kamar</th>
                                 <th>Jenis Kamar</th>
+                                <th>Kapasitas</th>
+                                <th>Jenis Kasur</th>
+                                <th>Harga</th>
+                                <th>Include Breakfast</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -36,8 +44,12 @@
 
                             @foreach ($kamar as $kmr)
                             <tr>
-                                <td>{{ $kmr->ketersediaanKamar }}</td>
+                                <td>{{ $kmr->tipeKamar }}</td>
                                 <td>{{ $kmr->jenisKamar }}</td>
+                                <td>{{ $kmr->kapasitas }}</td>
+                                <td>{{ $kmr->jenisKasur }}</td>
+                                <td>{{ $kmr->harga }}</td>
+                                <td>{{ $kmr->includeBreakfast }}</td>
                                 <td>
                                     <a href="{{ route('admin.kamar.edit', $kmr) }}" class="btn btn-primary">Edit</a>
                                     <a href="{{ route('admin.kamar.delete', $kmr->id) }}"
