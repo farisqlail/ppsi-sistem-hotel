@@ -23,8 +23,7 @@ Route::name('admin.')->group(function () {
 
             //CekIn
             Route::get('/cekIn/{cekIn}/delete', '\App\Http\Controllers\Admin\CekInController@destroy')->name('cekIn.delete');
-            // Route::get('/cekIn/{cek_in}/edit', '\App\Http\Controllers\Admin\CekInController@edit')->name('cekIn.edit');
-            // Route::patch('/cekIn/{cek_in}', '\App\Http\Controllers\Admin\CekInController@update')->name('cekIn.update');
+            Route::get('/inHouse', '\App\Http\Controllers\Admin\CekInController@inHouse')->name('inHouse.iHouse');
             Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
 
             //Route Laundry

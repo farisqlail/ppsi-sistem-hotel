@@ -26,6 +26,13 @@ class CekInController extends Controller
         return view('admin.cekIn.index', compact('cekInCustomer'));
     }
 
+    public function inHouse(){
+
+        $cekInCustomer = CekInCustomer::all();
+
+        return view('admin.cekIn.inHouse', compact('cekInCustomer'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -18,7 +18,7 @@
 
         <li class="nav-item active">
             <a class="nav-link" href="{{ url('/DashboardAdmin') }}">
-                <i class="fas fa-fw fa-id-card"></i>
+                <i class="fas fa-chart-line"></i>
                 <span>Dashboard</span></a>
         </li>
 
@@ -33,7 +33,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="{{ url('customer') }}">
                 <i class="fas fa-fw fa-id-card"></i>
-                <span>Data Customer</span></a>
+                <span>Customer</span></a>
         </li>
 
         <li class="nav-item active">
@@ -45,7 +45,7 @@
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('kamar') }}">
               <i class="fas fa-fw fa-bed"></i>
-              <span>Data Kamar</span></a>
+              <span>Kamar</span></a>
       </li>
 
         <hr class="sidebar-divider">
@@ -55,28 +55,34 @@
             Transaksi
         </div>
 
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ url('cekIn') }}">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Cek in Customer</span></a>
-        </li>
-
-        <li class="nav-item active">
-            <a class="nav-link" href="">
-                <i class="fas fa-fw fa-utensils"></i>
-                <span>Pesan Makanan</span></a>
-        </li>
-
-        <li class="nav-item active">
-            <a class="nav-link" href="">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ceInOut"
+                aria-expanded="true" aria-controls="ceInOut">
                 <i class="fas fa-fw fa-door-open"></i>
-                <span>Cek out Customer</span></a>
+                <span>Cek In & Cek Out</span>
+            </a>
+            <div id="ceInOut" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Cek In & Cek Out</h6>
+                    <a class="nav-link text-dark" href="{{ url('cekIn') }}">Cek In Customer</a>
+                    <a class="nav-link text-dark" href="{{ url('inHouse') }}">Customer In House</a>
+                </div>
+            </div>
         </li>
 
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ url('/laundry') }}">
-                <i class="fas fa-fw fa-camera-retro"></i>
-                <span>Laundry</span></a>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#utility"
+                aria-expanded="true" aria-controls="utility">
+                <i class="fas fa-fw fa-exchange-alt"></i>
+                <span>Transaksi Utility</span>
+            </a>
+            <div id="utility" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Transaksi Utility</h6>
+                    <a class="nav-link text-dark" href="{{ url('/laundry') }}">Laundry</a>
+                    <a class="nav-link text-dark" href="{{ url('/') }}">Pesan Makanan</a>
+                </div>
+            </div>
         </li>
 
         <!-- Divider -->
