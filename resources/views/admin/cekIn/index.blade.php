@@ -53,7 +53,7 @@
                                 <td>{{ $cekIn->tanggalCekIn }}</td>
                                 <td>{{ $cekIn->jumlahTamu }}</td>
                                 <td>{{ $cekIn->tanggalCekOut }}</td>
-                                <td>{{ $cekIn->tipeKamar }}</td>
+                                <td>{{ $cekIn->type->typeKamar }}</td>
                                 <td>{{ $cekIn->noKamar }}</td>
                                 <td>{{ $cekIn->deposit }}</td>
                                 <td>

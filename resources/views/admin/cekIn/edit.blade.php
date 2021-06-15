@@ -83,7 +83,9 @@
                             <label for="">Nomor Kamar</label>
                             <select class="form-control" name="noKamar">
                                 <option selected>Pilih No Kamar</option>
-                                <option value="201">201</option>
+                                    @foreach ($kamar as $kmr)
+                                        <option value="{{ $kmr->noKamar }}">{{ $kmr->noKamar }}</option>
+                                    @endforeach
                               </select>
                         </div>
                     </div>

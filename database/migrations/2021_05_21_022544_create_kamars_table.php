@@ -15,7 +15,7 @@ class CreateKamarsTable extends Migration
     {
         Schema::create('kamars', function (Blueprint $table) {
             $table->id();
-            $table->integer('noKamar');
+            $table->string('noKamar');
             $table->bigInteger('type_id');
             $table->bigInteger('kapasitas');
             $table->string('jenisKasur');

@@ -34,4 +34,9 @@ class CekInCustomer extends Model
 
         return $this->hasOne(Karyawan::class);
     }
+
+    public function type(){
+
+        return $this->belongsTo(TypeKamar::class);
+    }
 }
