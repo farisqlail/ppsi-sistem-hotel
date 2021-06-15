@@ -24,6 +24,7 @@ class CreateCekInCustomersTable extends Migration
             $table->bigInteger('type_id');
             $table->integer('noKamar');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

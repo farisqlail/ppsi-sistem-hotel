@@ -40,13 +40,13 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#makanan"
                 aria-expanded="true" aria-controls="makanan">
                 <i class="fas fa-fw fa-hamburger"></i>
-                <span>Menu Makanan</span>
+                <span>Menu</span>
             </a>
             <div id="makanan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Makanan</h6>
-                    <a class="nav-link text-dark" href="{{ url('makanan') }}">Makanan</a>
-                    <a class="nav-link text-dark" href="{{ url('JenisMakanan') }}">Jenis Makanan</a>
+                    <a class="nav-link text-dark" href="{{ url('makanan') }}">Menu</a>
+                    <a class="nav-link text-dark" href="{{ url('JenisMakanan') }}">Jenis Menu</a>
                 </div>
             </div>
         </li>

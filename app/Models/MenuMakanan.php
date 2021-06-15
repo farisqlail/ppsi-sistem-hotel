@@ -10,10 +10,15 @@ class MenuMakanan extends Model
     use HasFactory;
 
     protected $fillable = [
-      
+        'jenis_id',
         'namaMenu',
         'jumlah',
         'harga'
     ];
+
+    public function jenis(){
+
+        return $this->belongsTo(JenisMakanan::class);
+    }
 
 }

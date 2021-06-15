@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class JenisMakanan extends Model
 {
     use HasFactory;
-    protected $fillable = [
 
-        'JenisMakanan'
+    protected $fillable = [
+        'jenisMakanan'
 
     ];
 }

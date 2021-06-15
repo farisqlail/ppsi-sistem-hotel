@@ -47,7 +47,7 @@ class JenisMakananController extends Controller
         Alert::success('Success', 'Berhasil menambah data kamar');
 
         JenisMakanan::create([
-            'JenisMakanan' => request('JenisMakanan')
+            'jenisMakanan' => request('jenisMakanan')
         ]);
 
         return redirect()->route('admin.JenisMakanan.index');
@@ -88,7 +88,7 @@ class JenisMakananController extends Controller
 
         $JenisMakanan->update([
 
-            'JenisMakanan' => request('JenisMakanan')
+            'jenisMakanan' => request('jenisMakanan')
 
         ]);
 

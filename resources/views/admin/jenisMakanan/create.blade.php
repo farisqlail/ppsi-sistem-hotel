@@ -16,7 +16,7 @@
 
                     <div class="form-group">
                         <label for="">Jenis Menu</label>
-                        <input type="text" name="JenisMakanan" class="form-control" placeholder="Jenis Menu">
+                        <input type="text" name="jenisMakanan" class="form-control" placeholder="Jenis Menu">
                     </div>
 
                     <div class="form-group">

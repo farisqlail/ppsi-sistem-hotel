@@ -14,6 +14,16 @@
                 <form action="{{ route('admin.makanan.store') }}" method="post">
                     {{ csrf_field() }}
 
+                    <div class="form-group"> 
+                        <label for="">Jenis Menu</label>
+                        <select class="form-control" name="jenis_id">
+                            <option selected>Pilih Jenis Menu</option>
+                            @foreach ($jenisMenu as $jenis)
+                                <option value="{{ $jenis->id }}">{{ $jenis->jenisMakanan }}</option>
+                            @endforeach
+                          </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="">Nama Menu</label>
                         <input type="text" name="namaMenu" class="form-control" placeholder="Nama Menu">

@@ -73,11 +73,11 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Pending Requests</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                Menu Yang Tersedia</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $makananCount }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            <i class="fas fa-utensils fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -184,18 +184,16 @@
                         </tfoot>
                         <tbody>
 
-                            {{-- @foreach ($makanan as $mkn)
-                            <tr>
-                                <td>{{ $mkn->namaMenu }}</td>
-                                <td>{{ $mkn->jumlah }}</td>
-                                <td>Rp.{{ number_format($mkn->harga,2) }}</td>
-                                <td>
-                                    <a href="{{ route('admin.makanan.edit', $mkn) }}" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('admin.makanan.delete', $mkn->id) }}"
-                                        class="btn btn-danger">Delete</a>
-                                </td>
-                            </tr>
-                            @endforeach --}}
+                            @foreach ($cekInTrash as $ck)
+                                @if ($ck->trashed())
+                                    <tr class="bg-danger text-white">
+                                        <td>{{ $ck->noKamar }}</td>
+                                        <td>{{ $ck->namaCustomer }}</td>
+                                        <td>{{ $ck->tanggalCekIn }}</td>
+        
+                                    </tr>
+                                @endif
+                            @endforeach
 
                         </tbody>
                     </table>

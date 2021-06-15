@@ -17,7 +17,7 @@
 
                     <div class="form-group"> 
                         <label for="">Jenis Menu</label>
-                        <input type="text" name="JenisMakanan" class="form-control" value="{{ $JenisMakanan->JenisMakanan }}"> 
+                        <input type="text" name="jenisMakanan" class="form-control" value="{{ $JenisMakanan->JenisMakanan }}"> 
                     </div>
 
                     <div class="form-group">

@@ -15,7 +15,7 @@ class CreateJenisMakanansTable extends Migration
     {
         Schema::create('jenis_makanans', function (Blueprint $table) {
             $table->id();
-            $table->string('JenisMakanan');
+            $table->string('jenisMakanan');
             $table->timestamps();
         });
     }

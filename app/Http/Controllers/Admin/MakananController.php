@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\MenuMakanan;
+use App\Models\JenisMakanan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,8 +23,9 @@ class MakananController extends Controller
     public function index()
     {
         $makanan = MenuMakanan::all();
+        $jenisMenu = JenisMakanan::all();
         
-        return view('admin.makanan.index', compact('makanan'));
+        return view('admin.makanan.index', compact('makanan', 'jenisMenu'));
     }
 
     /**
@@ -33,7 +35,9 @@ class MakananController extends Controller
      */
     public function create()
     {
-        return view('admin.makanan.create');
+        $jenisMenu = JenisMakanan::all();
+
+        return view('admin.makanan.create', compact('jenisMenu'));
     }
 
     /**
@@ -49,6 +53,7 @@ class MakananController extends Controller
         $harga = str_replace('.','',request('harga'));
 
         MenuMakanan::create([
+            'jenis_id' => request('jenis_id'),
             'namaMenu' => request('namaMenu'),
             'jumlah' => request('jumlah'),
             'harga' => $harga
@@ -76,7 +81,9 @@ class MakananController extends Controller
      */
     public function edit(MenuMakanan $makanan)
     {
-        return view('admin.makanan.edit', compact('makanan'));
+        $jenisMenu = JenisMakanan::all();
+
+        return view('admin.makanan.edit', compact('makanan', 'jenisMenu'));
     }
 
     /**
@@ -93,6 +100,7 @@ class MakananController extends Controller
         $harga = str_replace('.','',request('harga'));
 
         $makanan->update([
+            'jenis_id' => request('jenis_id'),
             'namaMenu' => request('namaMenu'),
             'jumlah' => request('jumlah'),
             'harga' => $harga
