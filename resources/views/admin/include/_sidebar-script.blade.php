@@ -36,10 +36,19 @@
                 <span>Customer</span></a>
         </li>
 
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ url('makanan') }}">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#makanan"
+                aria-expanded="true" aria-controls="makanan">
                 <i class="fas fa-fw fa-hamburger"></i>
-                <span>Menu Makanan</span></a>
+                <span>Menu Makanan</span>
+            </a>
+            <div id="makanan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Makanan</h6>
+                    <a class="nav-link text-dark" href="{{ url('makanan') }}">Makanan</a>
+                    <a class="nav-link text-dark" href="{{ url('JenisMakanan') }}">Jenis Makanan</a>
+                </div>
+            </div>
         </li>
 
         <li class="nav-item">

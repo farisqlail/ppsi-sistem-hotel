@@ -40,6 +40,10 @@ Route::name('admin.')->group(function () {
             //Route TypeKamar
             Route::get('/typeKamar/{typeKamar}/delete', '\App\Http\Controllers\Admin\TypeKamarController@destroy')->name('typeKamar.delete');
             Route::resource('typeKamar', '\App\Http\Controllers\Admin\TypeKamarController');
+
+            //Route JenisMakanan
+            Route::get('/JenisMakanan/{JenisMakanan}/delete', '\App\Http\Controllers\Admin\JenisMakananController@destroy')->name('JenisMakanan.delete');
+            Route::resource('JenisMakanan', '\App\Http\Controllers\Admin\JenisMakananController');
         }
     );
 });
