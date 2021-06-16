@@ -12,10 +12,7 @@ class Kamar extends Model
     protected $fillable = [
         'noKamar',
         'type_id',
-        'kapasitas',
-        'jenisKasur',
-        'harga',
-        'includeBreakfast'
+        'jumlah'
     ];
 
     public function CekInCustomer()

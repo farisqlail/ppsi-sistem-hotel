@@ -11,6 +11,5 @@ class JenisMakanan extends Model
 
     protected $fillable = [
         'jenisMakanan'
-
     ];
 }

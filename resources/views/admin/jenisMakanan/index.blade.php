@@ -34,7 +34,7 @@
 
                             @foreach ($JenisMakanan as $jm)
                             <tr>
-                                <td>{{ $jm->JenisMakanan }}</td>
+                                <td>{{ $jm->jenisMakanan }}</td>
                                 <td>
                                     <a href="{{ route('admin.JenisMakanan.edit', $jm) }}" class="btn btn-primary">Edit</a>
                                     <a href="{{ route('admin.JenisMakanan.delete', $jm->id) }}"

@@ -21,7 +21,8 @@ class TypeKamarController extends Controller
      */
     public function index()
     {
-        $typeKamar = TypeKamar::all();
+        $typeKamar = TypeKamar::sum('jumlah')();
+        // $typeKamar = DB ::table ('kamars')
 
         return view('admin.type.index', compact('typeKamar'));
     }
