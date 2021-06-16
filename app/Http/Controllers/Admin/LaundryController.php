@@ -3,8 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Laundry;
-use Illuminate\Http\Request;
+use App\Models\Kamar;
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Paginator;
 
 class LaundryController extends Controller
 {
@@ -27,7 +35,9 @@ class LaundryController extends Controller
      */
     public function create()
     {
-        return view('admin.laundry.create');
+        $laundry = Laundry::all();
+
+        return view('admin.laundry.create', compact('laundry'));
     }
 
     /**
@@ -38,7 +48,18 @@ class LaundryController extends Controller
      */
     public function store(Request $request)
     {
-        
+        Alert::success('Success', 'Berhasil menambah data laundry');
+
+        Laundry::create([
+            'idKamar' => request('idKamar'),
+            'idcustomer' => request('idcustomer'),
+            'jenisLaundri' => request('jenisLaundri'),
+            'berat' => request('berat'),
+            'total' => request('total')
+
+        ]);
+
+        return redirect()->route('admin.laundry.index');
     }
 
     /**
@@ -58,9 +79,11 @@ class LaundryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Laundry $laundry)
     {
-        //
+        $laundry2 = Laundry::all();
+
+        return view('admin.laundry.edit', compact('laundry', 'laundry2'));
     }
 
     /**
@@ -70,9 +93,20 @@ class LaundryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Laundry $laundry)
     {
-        //
+        Alert::success('Success', 'Berhasil mengedit data laundry');
+
+        $laundry->update([
+            'idKamar' => request('idKamar'),
+            'idcustomer' => request('idcustomer'),
+            'JenisLaundri' => request('JenisLaundri'),
+            'berat' => request('berat'),
+            'total' => request('total')
+
+        ]);
+
+        return redirect()->route('admin.laundry.index');
     }
 
     /**
@@ -81,8 +115,11 @@ class LaundryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Laundry $laundry)
     {
-        //
+        $laundry->delete();
+        Alert::success('Success', 'Berhasil menghapus data menu laundry');
+
+        return redirect()->route('admin.laundry.index');
     }
 }

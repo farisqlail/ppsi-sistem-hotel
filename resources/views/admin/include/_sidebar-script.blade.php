@@ -102,8 +102,8 @@
             <div id="utility" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Transaksi Utility</h6>
-                    <a class="nav-link text-dark" href="{{ url('/laundry') }}">Laundry</a>
-                    <a class="nav-link text-dark" href="{{ url('/') }}">Pesan Makanan</a>
+                    <a class="nav-link text-dark" href="{{ url('laundry') }}">Laundry</a>
+                    <a class="nav-link text-dark" href="{{ url('') }}">Pesan Makanan</a>
                 </div>
             </div>
         </li>
