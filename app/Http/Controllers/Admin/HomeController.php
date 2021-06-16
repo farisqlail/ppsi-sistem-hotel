@@ -30,9 +30,9 @@ class HomeController extends Controller
     {
         $this->middleware('role:admin');
 
-        $kamar = Kamar::sum('jumlah');
+        $kamar = Kamar::all();
         // dd($kamar);
-        // $kamarCount = $kamar;
+        $kamarCount = $kamar->count();
 
         $cekIn = CekInCustomer::all();
         $cekInTrash = CekInCustomer::onlyTrashed()->get();
@@ -45,7 +45,7 @@ class HomeController extends Controller
         $makanan = MenuMakanan::all();
         $makananCount = $makanan->count();
 
-        return view('admin.dashboard', compact('kamar', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
+        return view('admin.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
     }
 
     public function hrd(){
