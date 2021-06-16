@@ -15,9 +15,12 @@ class CreateKamarsTable extends Migration
     {
         Schema::create('kamars', function (Blueprint $table) {
             $table->id();
-            $table->string('ketersediaanKamar');
-            $table->string('jenisKamar');
-            $table->bigInteger('harga');
+            $table->string('noKamar');
+            $table->bigInteger('type_id');
+            $table->bigInteger('kapasitas');
+            $table->string('jenisKasur');
+            $table->integer('harga');
+            $table->string('includeBreakfast');
             $table->timestamps();
         });
     }

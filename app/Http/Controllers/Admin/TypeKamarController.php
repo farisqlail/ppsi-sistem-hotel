@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\MenuMakanan;
-use App\Models\JenisMakanan;
 use App\Http\Controllers\Controller;
+use App\Models\TypeKamar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -13,7 +12,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Paginator;
 
-class MakananController extends Controller
+class TypeKamarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,10 +21,9 @@ class MakananController extends Controller
      */
     public function index()
     {
-        $makanan = MenuMakanan::all();
-        $jenisMenu = JenisMakanan::all();
-        
-        return view('admin.makanan.index', compact('makanan', 'jenisMenu'));
+        $typeKamar = TypeKamar::all();
+
+        return view('admin.type.index', compact('typeKamar'));
     }
 
     /**
@@ -35,9 +33,7 @@ class MakananController extends Controller
      */
     public function create()
     {
-        $jenisMenu = JenisMakanan::all();
-
-        return view('admin.makanan.create', compact('jenisMenu'));
+        return view('admin.type.create');
     }
 
     /**
@@ -48,18 +44,15 @@ class MakananController extends Controller
      */
     public function store(Request $request)
     {
-        Alert::success('Success', 'Berhasil menambah data menu makanan');
+        Alert::success('Success', 'Berhasil menambah data TypeKamar');
 
-        $harga = str_replace('.','',request('harga'));
+        // $harga = str_replace('.', '', request('harga'));
 
-        MenuMakanan::create([
-            'jenis_id' => request('jenis_id'),
-            'namaMenu' => request('namaMenu'),
-            'jumlah' => request('jumlah'),
-            'harga' => $harga
+        TypeKamar::create([
+            'typeKamar' => request('typeKamar')
         ]);
 
-        return redirect()->route('admin.makanan.index');
+        return redirect()->route('admin.typeKamar.index');
     }
 
     /**
@@ -79,11 +72,9 @@ class MakananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(MenuMakanan $makanan)
+    public function edit(TypeKamar $typeKamar)
     {
-        $jenisMenu = JenisMakanan::all();
-
-        return view('admin.makanan.edit', compact('makanan', 'jenisMenu'));
+        return view('admin.type.edit', compact('typeKamar'));
     }
 
     /**
@@ -93,20 +84,17 @@ class MakananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MenuMakanan $makanan)
+    public function update(Request $request, typeKamar $typeKamar)
     {
-        Alert::success('Success', 'Berhasil menedit data menu makanan');
+        Alert::success('Success', 'Berhasil mengedit data TypeKamar');
 
-        $harga = str_replace('.','',request('harga'));
+        // $harga = str_replace('.','',request('harga'));
 
-        $makanan->update([
-            'jenis_id' => request('jenis_id'),
-            'namaMenu' => request('namaMenu'),
-            'jumlah' => request('jumlah'),
-            'harga' => $harga
+        $typeKamar->update([
+            'typeKamar' => request('typeKamar')
         ]);
 
-        return redirect()->route('admin.makanan.index');
+        return redirect()->route('admin.typeKamar.index');
     }
 
     /**
@@ -115,11 +103,11 @@ class MakananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MenuMakanan $makanan)
+    public function destroy(typeKamar $typeKamar)
     {
-        $makanan->delete();
-        Alert::success('Success', 'Berhasil menghapus data menu makanan');
+        $typeKamar->delete();
+        Alert::success('Success', 'Berhasil menghapus data TypeKamar');
 
-        return redirect()->route('admin.makanan.index');
+        return redirect()->route('admin.typeKamar.index');
     }
 }

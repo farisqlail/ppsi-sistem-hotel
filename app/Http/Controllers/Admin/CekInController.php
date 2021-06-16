@@ -2,9 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\CekIn;
-use Illuminate\Http\Request;
+use App\Models\CekInCustomer;
+use App\Models\TypeKamar;
+use App\Models\Kamar;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Paginator;
 
 class CekInController extends Controller
 {
@@ -15,9 +23,16 @@ class CekInController extends Controller
      */
     public function index()
     {
-        $cekIn = CekIn::all();
+        $cekInCustomer = CekInCustomer::all();
 
-        return view('admin.cekIn.index', compact('cekIn'));
+        return view('admin.cekIn.index', compact('cekInCustomer'));
+    }
+
+    public function inHouse(){
+
+        $cekInCustomer = CekInCustomer::all();
+
+        return view('admin.cekIn.inHouse', compact('cekInCustomer'));
     }
 
     /**
@@ -27,7 +42,10 @@ class CekInController extends Controller
      */
     public function create()
     {
-        //
+        $typeKamar = TypeKamar::all();
+        $kamar = Kamar::all();
+
+        return view('admin.cekIn.create', compact('typeKamar', 'kamar'));
     }
 
     /**
@@ -38,7 +56,20 @@ class CekInController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Alert::success('Success', 'Customer berhasil cek in kamar');
+
+        CekInCustomer::create([
+            'namaCustomer' => request('namaCustomer'),
+            'namaKaryawan' => request('namaKaryawan'),
+            'tanggalCekIn' => request('tanggalCekIn'),
+            'jumlahTamu' => request('jumlahTamu'),
+            'tanggalCekOut' => request('tanggalCekOut'),
+            'deposit' => request('deposit'),
+            'type_id' => request('type_id'),
+            'noKamar' => request('noKamar')
+        ]);
+
+        return redirect()->route('admin.cekIn.index');
     }
 
     /**
@@ -58,9 +89,12 @@ class CekInController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CekInCustomer $cekIn)
     {
-        //
+        $typeKamar = TypeKamar::all();
+        $kamar = Kamar::all();
+
+        return view('admin.cekIn.edit', compact('cekIn', 'typeKamar', 'kamar'));
     }
 
     /**
@@ -70,9 +104,22 @@ class CekInController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, CekInCustomer $cekIn)
     {
-        //
+        Alert::success('Success', 'Berhasil mengupdate cek in customer');
+
+        $cekIn->update([
+            'namaCustomer' => request('namaCustomer'),
+            'namaKaryawan' => request('namaKaryawan'),
+            'tanggalCekIn' => request('tanggalCekIn'),
+            'jumlahTamu' => request('jumlahTamu'),
+            'tanggalCekOut' => request('tanggalCekOut'),
+            'deposit' => request('deposit'),
+            'type_id' => request('type_id'),
+            'noKamar' => request('noKamar')
+        ]);
+
+        return redirect()->route('admin.cekIn.index');
     }
 
     /**
@@ -81,8 +128,11 @@ class CekInController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CekInCustomer $cekIn)
     {
-        //
+        Alert::success('Success', 'Berhasil menghapus data cek in customer');
+        $cekIn->delete();
+
+        return redirect()->route('admin.cekIn.index');
     }
 }

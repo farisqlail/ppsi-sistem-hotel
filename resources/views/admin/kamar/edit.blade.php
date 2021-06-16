@@ -15,16 +15,46 @@
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
 
-                    <div class="form-group"> 
-                        <label for="">Ketersediaan</label>
-                        <input type="text" name="ketersediaanKamar" class="form-control" value="{{ $kamar->ketersediaanKamar }}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group"> 
+                                <label for="">Tipe Kamar</label>
+                                <select class="form-control" name="type_id">
+                                    <option selected>Pilih Tipe Kamar</option>
+                                    @foreach ($typeKamar as $tKamar)
+                                        <option value="{{ $tKamar->id }}">{{ $tKamar->typeKamar }}</option>
+                                    @endforeach
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Kapasitas</label>
+                                <input type="text" name="kapasitas" class="form-control" value="{{ $kamar->kapasistas }}">
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="">Jenis Kamar</label>
-                        <input type="text" name="jenisKamar" class="form-control" value="{{ $kamar->jenisKamar }}">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group"> 
+                                <label for="">jenis Kasur</label>
+                                <input type="text" name="jenisKasur" class="form-control" value="{{ $kamar->jenisKasur }}">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group"> 
+                                <label for="">Harga</label>
+                                <input type="text" name="harga" class="form-control" value="{{ $kamar->harga }}">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">Include Breakfast</label>
+                                <input type="text" name="includeBreakfast" class="form-control" value="{{ $kamar->includeBreakFast }}">
+                            </div>
+                        </div>
                     </div>
-
                     <div class="form-group">
                         <button class="btn btn-primary float-right" value="save" type="submit">Edit</button>
                     </div>
@@ -36,3 +66,13 @@
     </div>
 
 @endsection
+
+@push('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script>
+        $('#harga').mask('000.000.000.000', {
+            reverse: true
+        });
+
+    </script>
+@endpush

@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\MenuMakanan;
 use App\Models\JenisMakanan;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Paginator;
+use Illuminate\Http\Request;
 
-class MakananController extends Controller
+class JenisMakananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,10 +21,9 @@ class MakananController extends Controller
      */
     public function index()
     {
-        $makanan = MenuMakanan::all();
-        $jenisMenu = JenisMakanan::all();
-        
-        return view('admin.makanan.index', compact('makanan', 'jenisMenu'));
+        $JenisMakanan = JenisMakanan::all();
+
+        return view('admin.JenisMakanan.index', compact('JenisMakanan'));
     }
 
     /**
@@ -35,9 +33,7 @@ class MakananController extends Controller
      */
     public function create()
     {
-        $jenisMenu = JenisMakanan::all();
-
-        return view('admin.makanan.create', compact('jenisMenu'));
+        return view('admin.JenisMakanan.create');
     }
 
     /**
@@ -48,18 +44,13 @@ class MakananController extends Controller
      */
     public function store(Request $request)
     {
-        Alert::success('Success', 'Berhasil menambah data menu makanan');
+        Alert::success('Success', 'Berhasil menambah data kamar');
 
-        $harga = str_replace('.','',request('harga'));
-
-        MenuMakanan::create([
-            'jenis_id' => request('jenis_id'),
-            'namaMenu' => request('namaMenu'),
-            'jumlah' => request('jumlah'),
-            'harga' => $harga
+        JenisMakanan::create([
+            'jenisMakanan' => request('jenisMakanan')
         ]);
 
-        return redirect()->route('admin.makanan.index');
+        return redirect()->route('admin.JenisMakanan.index');
     }
 
     /**
@@ -79,11 +70,9 @@ class MakananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(MenuMakanan $makanan)
+    public function edit(JenisMakanan $JenisMakanan)
     {
-        $jenisMenu = JenisMakanan::all();
-
-        return view('admin.makanan.edit', compact('makanan', 'jenisMenu'));
+        return view('admin.JenisMakanan.edit', compact('JenisMakanan'));
     }
 
     /**
@@ -93,20 +82,17 @@ class MakananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MenuMakanan $makanan)
+    public function update(Request $request, JenisMakanan $JenisMakanan)
     {
-        Alert::success('Success', 'Berhasil menedit data menu makanan');
+        Alert::success('Success', 'Berhasil mengedit data JenisMakanan');
 
-        $harga = str_replace('.','',request('harga'));
+        $JenisMakanan->update([
 
-        $makanan->update([
-            'jenis_id' => request('jenis_id'),
-            'namaMenu' => request('namaMenu'),
-            'jumlah' => request('jumlah'),
-            'harga' => $harga
+            'jenisMakanan' => request('jenisMakanan')
+
         ]);
 
-        return redirect()->route('admin.makanan.index');
+        return redirect()->route('admin.JenisMakanan.index');
     }
 
     /**
@@ -115,11 +101,11 @@ class MakananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MenuMakanan $makanan)
+    public function destroy(JenisMakanan $JenisMakanan)
     {
-        $makanan->delete();
-        Alert::success('Success', 'Berhasil menghapus data menu makanan');
+        $JenisMakanan->delete();
+        Alert::success('Success', 'Berhasil menghapus data menu JenisMakanan');
 
-        return redirect()->route('admin.makanan.index');
+        return redirect()->route('admin.JenisMakanan.index');
     }
 }

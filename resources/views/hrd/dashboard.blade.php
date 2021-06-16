@@ -1,13 +1,12 @@
-@extends('admin.layouts')
+@extends('hrd.layouts')
 
-@section('content-admin')
+@section('content-hrd')
 <div class="container-fluid">
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard, Halo Admin</h1>
+        <h1 class="h3 mb-0 text-gray-800">Dashboard HRD</h1>
     </div>
-
 
       <!-- Content Row -->
       <div class="row">
@@ -19,11 +18,11 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Kamar Tersedia</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $kamarCount }}</div>
+                                Earnings (Monthly)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-bed fa-2x text-gray-300"></i>
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -37,11 +36,11 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Kamar Terbooking</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $cekInCount }}</div>
+                                Earnings (Annual)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-bed fa-2x text-gray-300"></i>
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -54,12 +53,23 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                Jumlah Customer</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $customerCount }}</div>
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -73,11 +83,11 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Menu Yang Tersedia</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $makananCount }}</div>
+                                Pending Requests</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-utensils fa-2x text-gray-300"></i>
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -88,12 +98,12 @@
     <div class="row">
 
         <!-- Area Chart -->
-        <div class="col-xl-6 col-lg-6">
+        <div class="col-xl-8 col-lg-7">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div
                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Customer Cek In Hari Ini</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                     <div class="dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -111,45 +121,20 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <table class="table table-bordered" id="tableCekIn" width="100%" cellspacing="0">
-                        <thead>
-                            <tr class="bg-muted">
-                                <th>No Kamar</th>
-                                <th>Nama Customer</th>
-                                <th>Tanggal Cek In</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr class="bg-muted">
-                                <th>No Kamar</th>
-                                <th>Nama Customer</th>
-                                <th>Tanggal Cek In</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-
-                            @foreach ($cekInDash as $ck)
-                            <tr class="bg-success text-white">
-                                <td>{{ $ck->noKamar }}</td>
-                                <td>{{ $ck->namaCustomer }}</td>
-                                <td>{{ $ck->tanggalCekIn }}</td>
-
-                            </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
+                    <div class="chart-area">
+                        <canvas id="myAreaChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Pie Chart -->
-        <div class="col-xl-6 col-lg-6">
+        <div class="col-xl-4 col-lg-5">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div
                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Customer Cek Out Hari Ini</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
                     <div class="dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -167,53 +152,24 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <table class="table table-bordered" id="tableCekOut" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>No Kamar</th>
-                                <th>Nama Customer</th>
-                                <th>Tanggal Cek In</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>No Kamar</th>
-                                <th>Nama Customer</th>
-                                <th>Tanggal Cek In</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-
-                            @foreach ($cekInTrash as $ck)
-                                @if ($ck->trashed())
-                                    <tr class="bg-danger text-white">
-                                        <td>{{ $ck->noKamar }}</td>
-                                        <td>{{ $ck->namaCustomer }}</td>
-                                        <td>{{ $ck->tanggalCekIn }}</td>
-        
-                                    </tr>
-                                @endif
-                            @endforeach
-
-                        </tbody>
-                    </table>
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="myPieChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center small">
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-primary"></i> Direct
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-success"></i> Social
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-info"></i> Referral
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    
 </div>
 @endsection
-
-@push('script')
-
-    <script>
-        $(document).ready(function() {
-            $('#tableCekIn').DataTable();
-            $('#tableCekOut').DataTable();
-        });
-
-    </script>
-
-@endpush

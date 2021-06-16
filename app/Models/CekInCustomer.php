@@ -4,21 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CekInCustomer extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
-
-        'idCustomer',
-        'idKaryawan',
-        'idKamar',
+        'namaCustomer',
+        'namaKaryawan',
+        'tanggalCekIn',
+        'jumlahTamu',
+        'tanggalCekOut',
         'deposit',
-        'jenisPembayaran',
-        'tglCekIn',
-        'status'
-
+        'type_id',
+        'noKamar'
     ];
 
     public function customer(){
@@ -34,5 +35,10 @@ class CekInCustomer extends Model
     public function karyawan(){
 
         return $this->hasOne(Karyawan::class);
+    }
+
+    public function type(){
+
+        return $this->belongsTo(TypeKamar::class);
     }
 }

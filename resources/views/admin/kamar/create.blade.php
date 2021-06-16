@@ -14,14 +14,50 @@
                 <form action="{{ route('admin.kamar.store') }}" method="post">
                     {{ csrf_field() }}
 
-                    <div class="form-group"> 
-                        <label for="">Ketersediaan</label>
-                        <input type="text" name="ketersediaanKamar" class="form-control" placeholder="Ketersediaan Kamar">
+                    <div class="form-group">
+                        <label for="">No Kamar</label>
+                        <input type="text" name="noKamar" class="form-control" placeholder="No Kamar">
                     </div>
 
-                    <div class="form-group">
-                        <label for="">Jenis Kamar</label>
-                        <input type="text" name="jenisKamar" class="form-control" placeholder="Jenis Kamar">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group"> 
+                                <label for="">Tipe Kamar</label>
+                                <select class="form-control" name="type_id">
+                                    <option selected>Pilih Tipe Kamar</option>
+                                    @foreach ($typeKamar as $tKamar)
+                                        <option value="{{ $tKamar->id }}">{{ $tKamar->typeKamar }}</option>
+                                    @endforeach
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Kapasitas</label>
+                                <input type="text" name="kapasitas" class="form-control" placeholder="kapasitas">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group"> 
+                                <label for="">jenis Kasur</label>
+                                <input type="text" name="jenisKasur" class="form-control" placeholder="Jenis Kasur">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group"> 
+                                <label for="">Harga</label>
+                                <input type="text" name="harga" id="harga" class="form-control" placeholder="Harga">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">Include Breakfast</label>
+                                <input type="text" name="includeBreakfast" class="form-control" placeholder="Include Breakfast">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -35,3 +71,13 @@
     </div>
 
 @endsection
+
+@push('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script>
+        $('#harga').mask('000.000.000.000', {
+            reverse: true
+        });
+
+    </script>
+@endpush
