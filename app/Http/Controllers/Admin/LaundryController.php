@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Laundry;
+use App\Models\laundry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -49,7 +49,11 @@ class TypeKamarController extends Controller
         // $harga = str_replace('.', '', request('harga'));
 
         Laundry::create([
-            'laundry' => request('laundry')
+            'idkamar' => request('idkamar'),
+            'idcustomer' => request('idcustomer'),
+            'JenisLaundry' => request('JenisLaundry'),
+            'berat' => request('berat'),
+            'harga' => request('harga')
         ]);
 
         return redirect()->route('admin.laundry.index');
