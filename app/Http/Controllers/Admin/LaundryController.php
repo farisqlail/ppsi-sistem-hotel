@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Laundry;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Paginator;
 
-class LaundryController extends Controller
+class TypeKamarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,7 +44,15 @@ class LaundryController extends Controller
      */
     public function store(Request $request)
     {
-        
+        Alert::success('Success', 'Berhasil menambah data laundry');
+
+        // $harga = str_replace('.', '', request('harga'));
+
+        Laundry::create([
+            'laundry' => request('laundry')
+        ]);
+
+        return redirect()->route('admin.laundry.index');
     }
 
     /**
@@ -58,9 +72,9 @@ class LaundryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Laundry $laundry)
     {
-        //
+        return view('admin.laundry.edit', compact('laundry'));
     }
 
     /**
@@ -70,9 +84,17 @@ class LaundryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Laundry $typeKamar)
     {
-        //
+        Alert::success('Success', 'Berhasil mengedit data laundry');
+
+        // $harga = str_replace('.','',request('harga'));
+
+        $typeKamar->update([
+            'laundry' => request('laundry')
+        ]);
+
+        return redirect()->route('admin.laundry.index');
     }
 
     /**
@@ -81,8 +103,11 @@ class LaundryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(laundry $laundry)
     {
-        //
+        $laundry->delete();
+        Alert::success('Success', 'Berhasil menghapus data laundry');
+
+        return redirect()->route('admin.laundry.index');
     }
 }

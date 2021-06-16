@@ -6,7 +6,7 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Data Laundry</h1>
-            <a href="{{ route('admin.makanan.create') }}"
+            <a href="{{ route('admin.laundry.create') }}"
                 class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"><i
                     class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Laundry</a>
         </div>
@@ -20,30 +20,36 @@
                     <table class="table table-bordered" id="tableLaundry" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>nama menu</th>
-                                <th>jumlah</th>
+                                <th>id Kamar</th>
+                                <th>id Customer</th>
+                                <th>jenis Laundry</th>
+                                <th>berat</th>
                                 <th>harga</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>nama menu</th>
-                                <th>jumlah</th>
+                                <th>id Kamar</th>
+                                <th>id Customer</th>
+                                <th>jenis Laundry</th>
+                                <th>berat</th>
                                 <th>harga</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
                         <tbody>
 
-                            @foreach ($makanan as $mkn)
+                            @foreach ($laundry as $ldy)
                             <tr>
-                                <td>{{ $mkn->namaMenu }}</td>
-                                <td>{{ $mkn->jumlah }}</td>
-                                <td>Rp.{{ number_format($mkn->harga,2) }}</td>
+                                <td>{{ $ldy->idkamar }}</td>
+                                <td>{{ $ldy->idcustomer }}</td>
+                                <td>{{ $ldy->JenisLaundry }}</td>
+                                <td>{{ $ldy->berat }}</td>
+                                <td>{{ $ldy->idcustomer }}</td>
                                 <td>
-                                    <a href="{{ route('admin.makanan.edit', $mkn) }}" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('admin.makanan.delete', $mkn->id) }}"
+                                    <a href="{{ route('admin.laundry.edit', $ldy) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('admin.laundry.delete', $ldy->id) }}"
                                         class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
