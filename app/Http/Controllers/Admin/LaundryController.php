@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Laundry;
+use App\Models\Kamar;
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -79,9 +81,9 @@ class LaundryController extends Controller
      */
     public function edit(Laundry $laundry)
     {
-        $laundry = Laundry::all();
+        $laundry2 = Laundry::all();
 
-        return view('admin.laundry.edit', compact('laundry'));
+        return view('admin.laundry.edit', compact('laundry', 'laundry2'));
     }
 
     /**

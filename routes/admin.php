@@ -27,9 +27,9 @@ Route::name('admin.')->group(function () {
             Route::get('/inHouse', '\App\Http\Controllers\Admin\CekInController@inHouse')->name('inHouse.iHouse');
             Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
 
-            //Route Laundry
-            // Route::get('/laundry/{laundry}/delete', '\App\Http\Controllers\Admin\LaundryController@destroy')->name('laundry.delete');
-            // Route::resource('laundry', '\App\Http\Controllers\Admin\LaundryController');
+            // Route Laundry
+            Route::get('/laundry/{laundry}/delete', '\App\Http\Controllers\Admin\LaundryController@destroy')->name('laundry.delete');
+            Route::resource('laundry', '\App\Http\Controllers\Admin\LaundryController');
 
             //Route Makanan
             Route::get('/makanan/{makanan}/delete', '\App\Http\Controllers\Admin\MakananController@destroy')->name('makanan.delete');
