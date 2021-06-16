@@ -13,13 +13,18 @@
         <hr class="sidebar-divider mt-3">
 
         <div class="sidebar-heading mt-3">
-            Dashboard
+            Utama
         </div>
 
         <li class="nav-item active">
             <a class="nav-link" href="{{ url('/DashboardAdmin') }}">
                 <i class="fas fa-chart-line"></i>
                 <span>Dashboard</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ url('/History') }}">
+                <i class="fas fa-chart-line"></i>
+                <span>History</span></a>
         </li>
 
         <!-- Divider -->

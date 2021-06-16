@@ -11,20 +11,21 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ route('admin.cekIn.store') }}" method="post">
+                <form action="{{ route('admin.cekIn.update', $cekIn) }}" method="post">
                     {{ csrf_field() }}
+                    {{ method_field('PATCH') }}
 
                     <div class="row">
                         <div class="col-md-6">                            
                             <div class="form-group"> 
                                 <label for="">Nama Customer</label>
-                                <input type="text" name="namaCustomer" class="form-control" placeholder="Nama Customer">
+                                <input type="text" name="namaCustomer" class="form-control" value="{{ $cekIn->namaCustomer }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group"> 
                                 <label for="">Karyawan yang menangani</label>
-                                <input type="text" name="namaKaryawan" class="form-control" placeholder="Nama Karyawan">
+                                <input type="text" name="namaKaryawan" class="form-control" value="{{ $cekIn->namaKaryawan }}">
                             </div>
                         </div>
                     </div>
@@ -53,13 +54,13 @@
                         <div class="col-md-6">
                             <div class="form-group"> 
                                 <label for="">Tanggal Cek Out</label>
-                                <input type="date" name="tanggalCekOut" class="form-control" placeholder="Tanggal Cek Out">
+                                <input type="date" name="tanggalCekOut" class="form-control" value="{{ $cekIn->tanggalCekOut }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group"> 
                                 <label for="">Jumlah Deposit (Rp)</label>
-                                <input type="text" name="deposit" id="deposit" class="form-control" placeholder="Deposit">
+                                <input type="text" name="deposit" id="deposit" class="form-control" value="{{ $cekIn->deposit }}">
                             </div>
                         </div>
                     </div>
