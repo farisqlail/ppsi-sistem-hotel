@@ -16,10 +16,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('role:admin');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('role:admin');
+    // }
 
     /**
      * Show the application dashboard.
@@ -28,6 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $this->middleware('role:admin');
+
         $kamar = Kamar::all();
         $kamarCount = $kamar->count();
 
@@ -46,7 +48,14 @@ class HomeController extends Controller
     }
 
     public function hrd(){
+        $this->middleware('role:hrd');
         
         return view('hrd.dashboard');
+    }
+
+    public function karyawan(){
+        $this->middleware('role:karyawan');
+
+        return view('karyawan.dashboard');
     }
 }
