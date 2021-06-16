@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\CekInCustomer;
 use App\Models\TypeKamar;
 use App\Models\Kamar;
+use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,8 +59,17 @@ class CekInController extends Controller
     {
         Alert::success('Success', 'Customer berhasil cek in kamar');
 
+        // menangkap data pencarian
+        $cari = $request->namaCustomer;
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $customer = DB::table('customers')
+            ->where('namaCustomer', 'like', "%" . $cari . "%");
+
+            // dd($cari);
+
         CekInCustomer::create([
-            'namaCustomer' => request('namaCustomer'),
+            'namaCustomer' => $cari,
             'namaKaryawan' => request('namaKaryawan'),
             'tanggalCekIn' => request('tanggalCekIn'),
             'jumlahTamu' => request('jumlahTamu'),

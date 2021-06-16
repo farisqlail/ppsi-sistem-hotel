@@ -20,9 +20,9 @@ class CreateCekInCustomersTable extends Migration
             $table->string('tanggalCekIn');
             $table->integer('jumlahTamu');
             $table->string('tanggalCekOut');
-            $table->integer('deposit');
+            $table->string('deposit');
             $table->bigInteger('type_id');
-            $table->integer('noKamar');
+            $table->string('noKamar');
             $table->timestamps();
             $table->softDeletes();
         });
