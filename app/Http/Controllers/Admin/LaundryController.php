@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Laundry;
 use App\Http\Controllers\Controller;
-use App\Models\laundry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +12,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Paginator;
 
-class TypeKamarController extends Controller
+class LaundryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,7 +33,9 @@ class TypeKamarController extends Controller
      */
     public function create()
     {
-        return view('admin.laundry.create');
+        $laundry = Laundry::all();
+
+        return view('admin.laundry.create', compact('laundry'));
     }
 
     /**
@@ -44,19 +46,18 @@ class TypeKamarController extends Controller
      */
     public function store(Request $request)
     {
-        Alert::success('Success', 'Berhasil menambah data laundry');
-
-        // $harga = str_replace('.', '', request('harga'));
+        Alert::success('Success', 'Berhasil menambah data kamar');
 
         Laundry::create([
-            'idkamar' => request('idkamar'),
+            'idKamar' => request('idKamar'),
             'idcustomer' => request('idcustomer'),
             'JenisLaundry' => request('JenisLaundry'),
             'berat' => request('berat'),
-            'harga' => request('harga')
+            'total' => request('total')
+            
         ]);
 
-        return redirect()->route('admin.laundry.index');
+        return redirect()->route('admin.kamar.index');
     }
 
     /**
@@ -78,6 +79,8 @@ class TypeKamarController extends Controller
      */
     public function edit(Laundry $laundry)
     {
+        $laundry = Laundry::all();
+
         return view('admin.laundry.edit', compact('laundry'));
     }
 
@@ -88,14 +91,17 @@ class TypeKamarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Laundry $typeKamar)
+    public function update(Request $request, Laundry $laundry)
     {
         Alert::success('Success', 'Berhasil mengedit data laundry');
 
-        // $harga = str_replace('.','',request('harga'));
+        $laundry->update([
+            'idKamar' => request('idKamar'),
+            'idcustomer' => request('idcustomer'),
+            'JenisLaundry' => request('JenisLaundry'),
+            'berat' => request('berat'),
+            'total' => request('total')
 
-        $typeKamar->update([
-            'laundry' => request('laundry')
         ]);
 
         return redirect()->route('admin.laundry.index');
@@ -107,10 +113,10 @@ class TypeKamarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(laundry $laundry)
+    public function destroy(Laundry $laundry)
     {
         $laundry->delete();
-        Alert::success('Success', 'Berhasil menghapus data laundry');
+        Alert::success('Success', 'Berhasil menghapus data menu laundry');
 
         return redirect()->route('admin.laundry.index');
     }

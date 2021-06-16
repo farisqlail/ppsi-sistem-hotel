@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController\Admin;
+use App\Http\Controllers\LaundryController;
 
 Route::name('admin.')->group(function () {
     Route::group(
@@ -38,8 +39,6 @@ Route::name('admin.')->group(function () {
             Route::get('/kamar/{kamar}/delete', '\App\Http\Controllers\Admin\KamarController@destroy')->name('kamar.delete');
             Route::resource('kamar', '\App\Http\Controllers\Admin\KamarController');
 
-
-            //komen
             //Route TypeKamar
             Route::get('/typeKamar/{typeKamar}/delete', '\App\Http\Controllers\Admin\TypeKamarController@destroy')->name('typeKamar.delete');
             Route::resource('typeKamar', '\App\Http\Controllers\Admin\TypeKamarController');
