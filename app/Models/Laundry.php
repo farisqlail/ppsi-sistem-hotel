@@ -12,7 +12,9 @@ class Laundry extends Model
 
     protected $fillable = [
         'idKamar',
-        'jenisLaudri',
+        'idcustomer',
+        'jenisLaundri',
+        'berat',
         'total'
     ];
 

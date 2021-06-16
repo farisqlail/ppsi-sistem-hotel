@@ -27,6 +27,7 @@ Route::name('admin.')->group(function () {
             Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
 
             //Route Laundry
+            Route::get('/laundry/{laundry}/delete', '\App\Http\Controllers\Admin\LaundryController@destroy')->name('laundry.delete');
             Route::resource('laundry', '\App\Http\Controllers\Admin\LaundryController');
 
             //Route Makanan
