@@ -46,18 +46,18 @@ class LaundryController extends Controller
      */
     public function store(Request $request)
     {
-        Alert::success('Success', 'Berhasil menambah data kamar');
+        Alert::success('Success', 'Berhasil menambah data laundry');
 
         Laundry::create([
             'idKamar' => request('idKamar'),
             'idcustomer' => request('idcustomer'),
-            'JenisLaundry' => request('JenisLaundry'),
+            'jenisLaundri' => request('jenisLaundri'),
             'berat' => request('berat'),
             'total' => request('total')
-            
+
         ]);
 
-        return redirect()->route('admin.kamar.index');
+        return redirect()->route('admin.laundry.index');
     }
 
     /**
@@ -98,7 +98,7 @@ class LaundryController extends Controller
         $laundry->update([
             'idKamar' => request('idKamar'),
             'idcustomer' => request('idcustomer'),
-            'JenisLaundry' => request('JenisLaundry'),
+            'JenisLaundri' => request('JenisLaundri'),
             'berat' => request('berat'),
             'total' => request('total')
 

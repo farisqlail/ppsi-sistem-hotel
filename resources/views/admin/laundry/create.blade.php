@@ -16,17 +16,17 @@
 
                     <div class="form-group"> 
                         <label for="">id kamar</label>
-                        <input type="text" name="idkamar" class="form-control" placeholder="id Kamar">
+                        <input type="text" name="idKamar" class="form-control" placeholder="id Kamar">
                     </div>
 
                     <div class="form-group"> 
                         <label for="">id Customer</label>
-                        <input type="text" name="idkamar" class="form-control" placeholder="id Customer">
+                        <input type="text" name="idcustomer" class="form-control" placeholder="id Customer">
                     </div>
 
                     <div class="form-group"> 
                         <label for="">Jenis Laundry</label>
-                        <input type="text" name="jenisLaundry" class="form-control" placeholder="Jenis Laundry">
+                        <input type="text" name="jenisLaundri" class="form-control" placeholder="Jenis Laundry">
                     </div>
 
                     <div class="form-group"> 
@@ -35,8 +35,8 @@
                     </div>
 
                     <div class="form-group"> 
-                        <label for="">Harga</label>
-                        <input type="text" name="harga" class="form-control" placeholder="Harga">
+                        <label for="">Total</label>
+                        <input type="text" name="total" class="form-control" placeholder="Harga">
                     </div>
 
                     <div class="form-group">

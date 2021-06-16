@@ -24,7 +24,7 @@
                                 <th>id Customer</th>
                                 <th>jenis Laundry</th>
                                 <th>berat</th>
-                                <th>harga</th>
+                                <th>Total</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -34,7 +34,7 @@
                                 <th>id Customer</th>
                                 <th>jenis Laundry</th>
                                 <th>berat</th>
-                                <th>harga</th>
+                                <th>Total</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -42,11 +42,11 @@
 
                             @foreach ($laundry as $ldy)
                             <tr>
-                                <td>{{ $ldy->idkamar }}</td>
+                                <td>{{ $ldy->idKamar }}</td>
                                 <td>{{ $ldy->idcustomer }}</td>
-                                <td>{{ $ldy->JenisLaundry }}</td>
+                                <td>{{ $ldy->JenisLaundri }}</td>
                                 <td>{{ $ldy->berat }}</td>
-                                <td>{{ $ldy->idcustomer }}</td>
+                                <td>{{ $ldy->total }}</td>
                                 <td>
                                     <a href="{{ route('admin.laundry.edit', $ldy) }}" class="btn btn-primary">Edit</a>
                                     <a href="{{ route('admin.laundry.delete', $ldy->id) }}"
