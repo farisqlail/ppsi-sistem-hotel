@@ -21,6 +21,7 @@
                         <thead>
                             <tr>
                                 <th>nama menu</th>
+                                <th>Jenis Menu</th>
                                 <th>jumlah</th>
                                 <th>harga</th>
                                 <th>Actions</th>
@@ -28,9 +29,10 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>nama menu</th>
-                                <th>jumlah</th>
-                                <th>harga</th>
+                                <th>Nama menu</th>
+                                <th>Jenis Menu</th>
+                                <th>Jumlah</th>
+                                <th>Harga</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -39,6 +41,7 @@
                             @foreach ($makanan as $mkn)
                             <tr>
                                 <td>{{ $mkn->namaMenu }}</td>
+                                <td>{{ $mkn->jenis->jenisMakanan }}</td>
                                 <td>{{ $mkn->jumlah }}</td>
                                 <td>Rp.{{ number_format($mkn->harga,2) }}</td>
                                 <td>
