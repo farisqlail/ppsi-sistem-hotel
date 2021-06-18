@@ -18,7 +18,7 @@ Route::name('admin.')->group(function () {
 
             Route::get('DashboardAdmin', '\App\Http\Controllers\Admin\HomeController@index')->name('admin.dash');
 
-            Route::get('History', '\App\Http\Controllers\Admin\HistoryController@index')->name('admin.dash');
+            Route::get('history', '\App\Http\Controllers\Admin\HistoryController@index')->name('admin.history');
 
             //Routes Customer
             Route::get('/customer/{customer}/delete', '\App\Http\Controllers\Admin\CustomerController@destroy')->name('customer.delete');
@@ -29,7 +29,8 @@ Route::name('admin.')->group(function () {
             Route::get('/inHouse', '\App\Http\Controllers\Admin\CekInController@inHouse')->name('inHouse.iHouse');
             Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
 
-            // Route Laundry
+
+            //Route Laundry
             Route::get('/laundry/{laundry}/delete', '\App\Http\Controllers\Admin\LaundryController@destroy')->name('laundry.delete');
             Route::resource('laundry', '\App\Http\Controllers\Admin\LaundryController');
 

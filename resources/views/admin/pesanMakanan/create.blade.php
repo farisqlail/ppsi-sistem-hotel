@@ -13,17 +13,17 @@
 
                     <div class="form-group">
                         <label for="">id Menu</label>
-                        <input type="text" name="idMenu" class="form-control" placeholder="Id Menu">
+                        <input type="text" name="idMenu"  class="form-control" placeholder="Id Menu">
                     </div>
 
                     <div class="form-group">
                         <label for="">Id Cek In</label>
-                        <input type="text" name="cekIn" class="form-control" placeholder="Id Cek In">
+                        <input type="text" name="cekIn"  value="cekIn" class="form-control" placeholder="Id Cek In">
                     </div>
 
                     <div class="form-group">
                         <label for="">Harga</label>
-                        <input type="text" name="harga" id="harga" class="form-control" placeholder="Harga">
+                        <input type="text" name="harga" value="cekIn" id="harga" class="form-control" placeholder="Harga">
                     </div>
 
                     <div class="form-group">
