@@ -18,11 +18,8 @@ Route::name('admin.')->group(function () {
 
             Route::get('DashboardAdmin', '\App\Http\Controllers\Admin\HomeController@index')->name('admin.dash');
 
-<<<<<<< HEAD
-            Route::get('Historynya', '\App\Http\Controllers\Admin\HistoryController@index')->name('admin.dash');
-=======
+
             Route::get('history', '\App\Http\Controllers\Admin\HistoryController@index')->name('admin.history');
->>>>>>> ad54c96fb83b585a61a747a22c16e18d36fe97e8
 
             //Routes Customer
             Route::get('/customer/{customer}/delete', '\App\Http\Controllers\Admin\CustomerController@destroy')->name('customer.delete');

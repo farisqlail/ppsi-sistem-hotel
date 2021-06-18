@@ -116,9 +116,9 @@ class pesanMakananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(pesanMakanan $makanan)
+    public function destroy(pesanMakanan $pesan)
     {
-        $makanan->delete();
+        $pesan->delete();
         Alert::success('Success', 'Berhasil menghapus data menu pesanMakanan');
 
         return redirect()->route('admin.pesanMakanan.index');
