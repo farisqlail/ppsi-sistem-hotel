@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Laundry;
-use App\Models\Kamar;
+use App\Models\pesanMakanan;
+use App\Models\JenisMakanan;
+use App\Models\CekInCustomer;
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
+use App\Models\MenuMakanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -14,7 +15,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Paginator;
 
-class LaundryController extends Controller
+class pesanMakananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,9 +24,11 @@ class LaundryController extends Controller
      */
     public function index()
     {
-        $laundry = Laundry::all();
+        $pesan = pesanMakanan::all();
+        $menu = MenuMakanan::all();
+        $cek = CekInCustomer::all();
 
-        return view('admin.laundry.index', compact('laundry'));
+        return view('admin.pesanMakanan.index', compact('pesan', 'menu', 'cek'));
     }
 
     /**
@@ -35,9 +38,9 @@ class LaundryController extends Controller
      */
     public function create()
     {
-        $laundry = Laundry::all();
+        $pesan = pesanMakanan::all();
 
-        return view('admin.laundry.create', compact('laundry'));
+        return view('admin.pesanMakanan.create', compact('pesan'));
     }
 
     /**
@@ -48,18 +51,17 @@ class LaundryController extends Controller
      */
     public function store(Request $request)
     {
-        Alert::success('Success', 'Berhasil menambah data laundry');
+        Alert::success('Success', 'Berhasil menambah data menu pesanMakanan');
 
-        Laundry::create([
-            'idKamar' => request('idKamar'),
-            'idcustomer' => request('idcustomer'),
-            'jenisLaundri' => request('jenisLaundri'),
-            'berat' => request('berat'),
-            'total' => request('total')
+        $harga = str_replace('.', '', request('harga'));
 
+        pesanMakanan::create([
+            'idMenu' => request('idMenu'),
+            'cekIn' => request('cekIn'),
+            'harga' => $harga
         ]);
 
-        return redirect()->route('admin.laundry.index');
+        return redirect()->route('admin.pesanMakanan.index');
     }
 
     /**
@@ -79,11 +81,11 @@ class LaundryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Laundry $laundry)
+    public function edit(pesanMakanan $pesan)
     {
-        $laundry2 = Laundry::all();
+        $pesan = pesanMakanan::all();
 
-        return view('admin.laundry.edit', compact('laundry', 'laundry2'));
+        return view('admin.pesanMakanan.edit', compact('pesan'));
     }
 
     /**
@@ -93,20 +95,19 @@ class LaundryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Laundry $laundry)
+    public function update(Request $request, pesanMakanan $pesan)
     {
-        Alert::success('Success', 'Berhasil mengedit data laundry');
+        Alert::success('Success', 'Berhasil menedit data menu pesanMakanan');
 
-        $laundry->update([
-            'idKamar' => request('idKamar'),
-            'idcustomer' => request('idcustomer'),
-            'JenisLaundri' => request('JenisLaundri'),
-            'berat' => request('berat'),
-            'total' => request('total')
+        $harga = str_replace('.', '', request('harga'));
 
+        $pesan->update([
+            'idMenu' => request('idMenu'),
+            'cekIn' => request('cekIn'),
+            'harga' => $harga
         ]);
 
-        return redirect()->route('admin.laundry.index');
+        return redirect()->route('admin.pesanMakanan.index');
     }
 
     /**
@@ -115,11 +116,11 @@ class LaundryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Laundry $laundry)
+    public function destroy(pesanMakanan $makanan)
     {
-        $laundry->delete();
-        Alert::success('Success', 'Berhasil menghapus data menu laundry');
+        $makanan->delete();
+        Alert::success('Success', 'Berhasil menghapus data menu pesanMakanan');
 
-        return redirect()->route('admin.laundry.index');
+        return redirect()->route('admin.pesanMakanan.index');
     }
 }

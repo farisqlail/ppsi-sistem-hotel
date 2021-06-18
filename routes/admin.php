@@ -18,6 +18,8 @@ Route::name('admin.')->group(function () {
 
             Route::get('DashboardAdmin', '\App\Http\Controllers\Admin\HomeController@index')->name('admin.dash');
 
+            Route::get('history', '\App\Http\Controllers\Admin\HistoryController@index')->name('admin.history');
+
             //Routes Customer
             Route::get('/customer/{customer}/delete', '\App\Http\Controllers\Admin\CustomerController@destroy')->name('customer.delete');
             Route::resource('customer', '\App\Http\Controllers\Admin\CustomerController');
@@ -26,6 +28,7 @@ Route::name('admin.')->group(function () {
             Route::get('/cekIn/{cekIn}/delete', '\App\Http\Controllers\Admin\CekInController@destroy')->name('cekIn.delete');
             Route::get('/inHouse', '\App\Http\Controllers\Admin\CekInController@inHouse')->name('inHouse.iHouse');
             Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
+
 
             //Route Laundry
             Route::get('/laundry/{laundry}/delete', '\App\Http\Controllers\Admin\LaundryController@destroy')->name('laundry.delete');
@@ -46,6 +49,10 @@ Route::name('admin.')->group(function () {
             //Route JenisMakanan
             Route::get('/JenisMakanan/{JenisMakanan}/delete', '\App\Http\Controllers\Admin\JenisMakananController@destroy')->name('JenisMakanan.delete');
             Route::resource('JenisMakanan', '\App\Http\Controllers\Admin\JenisMakananController');
+
+            //Route PesanMakanan
+            Route::get('/pesanMakanan/{pesanMakanan}/delete', '\App\Http\Controllers\Admin\pesanMakananController@destroy')->name('pesanMakanan.delete');
+            Route::resource('pesanMakanan', '\App\Http\Controllers\Admin\pesanMakananController');
         }
     );
 });
