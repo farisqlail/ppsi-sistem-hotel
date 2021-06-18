@@ -57,7 +57,7 @@ class pesanMakananController extends Controller
 
         pesanMakanan::create([
             'idMenu' => request('idMenu'),
-            'idCekIn' => request('idCekIn'),
+            'cekIn' => request('cekIn'),
             'harga' => $harga
         ]);
 
@@ -102,9 +102,8 @@ class pesanMakananController extends Controller
         $harga = str_replace('.', '', request('harga'));
 
         $pesan->update([
-            'jenis_id' => request('jenis_id'),
-            'namaMenu' => request('namaMenu'),
-            'jumlah' => request('jumlah'),
+            'idMenu' => request('idMenu'),
+            'cekIn' => request('cekIn'),
             'harga' => $harga
         ]);
 

@@ -18,7 +18,7 @@
 
                     <div class="form-group">
                         <label for="">Id Cek In</label>
-                        <input type="text" name="idCekIn" class="form-control" placeholder="Id Cek In">
+                        <input type="text" name="cekIn" class="form-control" placeholder="Id Cek In">
                     </div>
 
                     <div class="form-group">
