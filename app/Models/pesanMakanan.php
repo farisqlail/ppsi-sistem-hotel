@@ -11,7 +11,7 @@ class pesanMakanan extends Model
 
     protected $fillable = [
         'idMenu',
-        'idCekIn',
+        'cekIn',
         'harga'
     ];
 }

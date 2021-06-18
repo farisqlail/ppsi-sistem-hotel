@@ -21,11 +21,7 @@
                 <i class="fas fa-chart-line"></i>
                 <span>Dashboard</span></a>
         </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ url('/History') }}">
-                <i class="fas fa-chart-line"></i>
-                <span>History</span></a>
-        </li>
+
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
@@ -89,6 +85,7 @@
                     <h6 class="collapse-header">Cek In & Cek Out</h6>
                     <a class="nav-link text-dark" href="{{ url('cekIn') }}">Cek In Customer</a>
                     <a class="nav-link text-dark" href="{{ url('inHouse') }}">Customer In House</a>
+                    <a class="nav-link text-dark" href="{{ url('history') }}">History</a>
                 </div>
             </div>
         </li>

@@ -13,12 +13,12 @@
 
                     <div class="form-group">
                         <label for="">id Menu</label>
-                        <input type="text" name="idMenu"  class="form-control" placeholder="Id Menu">
+                        <input type="text" name="idMenu" class="form-control" placeholder="Id Menu">
                     </div>
 
                     <div class="form-group">
                         <label for="">Id Cek In</label>
-                        <input type="text" name="cekIn"  value="cekIn" class="form-control" placeholder="Id Cek In">
+                        <input type="text" name="cekIn" value="cekIn" class="form-control" placeholder="Id Cek In">
                     </div>
 
                     <div class="form-group">
