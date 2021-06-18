@@ -48,6 +48,10 @@ Route::name('admin.')->group(function () {
             //Route JenisMakanan
             Route::get('/JenisMakanan/{JenisMakanan}/delete', '\App\Http\Controllers\Admin\JenisMakananController@destroy')->name('JenisMakanan.delete');
             Route::resource('JenisMakanan', '\App\Http\Controllers\Admin\JenisMakananController');
+
+            //Route PesanMakanan
+            Route::get('/pesanMakanan/{pesanMakanan}/delete', '\App\Http\Controllers\Admin\pesanMakananController@destroy')->name('pesanMakanan.delete');
+            Route::resource('pesanMakanan', '\App\Http\Controllers\Admin\pesanMakananController');
         }
     );
 });
