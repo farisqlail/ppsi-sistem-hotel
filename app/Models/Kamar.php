@@ -14,8 +14,12 @@ class Kamar extends Model
         'type_id',
         'kapasitas',
         'jenisKasur',
+<<<<<<< HEAD
+        'harga'
+=======
         'harga',
         'includeBreakfast'
+>>>>>>> c3e4c85f85ff3c54b8ca23557d8321ab90680d1c
     ];
 
     public function CekInCustomer()
