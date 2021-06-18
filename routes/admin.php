@@ -18,7 +18,6 @@ Route::name('admin.')->group(function () {
 
             Route::get('DashboardAdmin', '\App\Http\Controllers\Admin\HomeController@index')->name('admin.dash');
 
-            Route::get('Historynya', '\App\Http\Controllers\Admin\HistoryController@index')->name('admin.dash');
             Route::get('history', '\App\Http\Controllers\Admin\HistoryController@index')->name('admin.history');
 
             //Routes Customer

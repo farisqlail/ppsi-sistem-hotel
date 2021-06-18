@@ -38,13 +38,13 @@
 
                             @foreach ($pesan as $psn)
                             <tr>
-                                <td>{{ $psn->namaMenu }}</td>
-                                <td>{{ $psn->jenis->jenisMakanan }}</td>
-                                <td>{{ $psn->jumlah }}</td>
-                                <td>Rp.{{ number_format($psn->harga,2) }}</td>
+                                <td>{{ $psn->idMenu }}</td>
+                                <td>{{ $psn->cekIn }}</td>
+                                <td>{{ $psn->harga }}</td>
+                                
                                 <td>
-                                    <a href="{{ route('admin.makanan.edit', $psn) }}" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('admin.makanan.delete', $psn->id) }}"
+                                    <a href="{{ route('admin.pesanMakanan.edit', $psn) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('admin.pesanMakanan.delete', $psn->id) }}"
                                         class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>

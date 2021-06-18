@@ -81,11 +81,9 @@ class pesanMakananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(pesanMakanan $pesan)
+    public function edit(pesanMakanan $pesanMakanan)
     {
-        $pesan = pesanMakanan::all();
-
-        return view('admin.pesanMakanan.edit', compact('pesan'));
+        return view('admin.pesanMakanan.edit', compact('pesanMakanan'));
     }
 
     /**
@@ -95,13 +93,13 @@ class pesanMakananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, pesanMakanan $pesan)
+    public function update(Request $request, pesanMakanan $pesanMakanan)
     {
         Alert::success('Success', 'Berhasil menedit data menu pesanMakanan');
 
         $harga = str_replace('.', '', request('harga'));
 
-        $pesan->update([
+        $pesanMakanan->update([
             'idMenu' => request('idMenu'),
             'cekIn' => request('cekIn'),
             'harga' => $harga
@@ -116,9 +114,9 @@ class pesanMakananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(pesanMakanan $makanan)
+    public function destroy(pesanMakanan $pesanMakanan)
     {
-        $makanan->delete();
+        $pesanMakanan->delete();
         Alert::success('Success', 'Berhasil menghapus data menu pesanMakanan');
 
         return redirect()->route('admin.pesanMakanan.index');
