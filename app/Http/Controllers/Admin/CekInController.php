@@ -32,6 +32,7 @@ class CekInController extends Controller
     public function inHouse(){
 
         $cekInCustomer = CekInCustomer::all();
+        
 
         return view('admin.cekIn.inHouse', compact('cekInCustomer'));
     }
