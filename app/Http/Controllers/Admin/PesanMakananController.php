@@ -53,7 +53,7 @@ class pesanMakananController extends Controller
     {
         Alert::success('Success', 'Berhasil menambah data menu pesanMakanan');
 
-        $harga = str_replace('.', '', request('Harga'));
+        $harga = str_replace('.', '', request('harga'));
 
         pesanMakanan::create([
             'idMenu' => request('idMenu'),
