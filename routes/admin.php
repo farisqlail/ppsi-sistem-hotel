@@ -53,6 +53,10 @@ Route::name('admin.')->group(function () {
             //Route PesanMakanan
             Route::get('/pesanMakanan/{pesanMakanan}/delete', '\App\Http\Controllers\Admin\pesanMakananController@destroy')->name('pesanMakanan.delete');
             Route::resource('pesanMakanan', '\App\Http\Controllers\Admin\pesanMakananController');
+
+            //Route promosi
+            Route::get('/promosi/{promosi}/delete', '\App\Http\Controllers\Admin\promosiController@destroy')->name('promosi.delete');
+            Route::resource('promosi', '\App\Http\Controllers\Admin\promosiController');
         }
     );
 });
