@@ -9,10 +9,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Dashboard HRD</title>
+  <title>Dashboard Karyawan</title>
   
   <link rel="shortcut icon" href="{{ asset('assets/img/logo.png') }}" type="image/x-icon">
-  @include('hrd.include._header-script')
+  @include('karyawan.include._header-script')
 </head>
 
 <body id="page-top">
@@ -20,19 +20,19 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    @include('hrd.include._sidebar-script')
+    @include('karyawan.include._sidebar-script')
 
     
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-      @include('hrd.include._navbar-script')
+      @include('karyawan.include._navbar-script')
 
       <!-- Main Content -->
       <div id="content">
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          @yield('content-hrd')
+          @yield('content-karyawan')
         </div>
         <!-- /.container-fluid -->
 
@@ -80,7 +80,7 @@
     </div>
   </div> --}}
 
-  @include('hrd.include._footer-script')
+  @include('karyawan.include._footer-script')
   @stack('script')
 </body>
 

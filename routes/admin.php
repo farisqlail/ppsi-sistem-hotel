@@ -97,7 +97,6 @@ Route::name('admin.')->group(function () {
     );
 });
 
-
 Route::name('admin.')->group(function () {
     Route::group(
         [
@@ -112,23 +111,23 @@ Route::name('admin.')->group(function () {
 
             Route::get('DashboardKaryawan', '\App\Http\Controllers\Admin\HomeController@karyawan')->name('karyawan.dash');
 
-            // //Routes Customer
-            // Route::get('/customer/{customer}/delete', '\App\Http\Controllers\Admin\CustomerController@destroy')->name('customer.delete');
-            // Route::resource('customer', '\App\Http\Controllers\Admin\CustomerController');
+            //CekIn
+            Route::get('/cekIn/{cekIn}/delete', '\App\Http\Controllers\Admin\CekInController@destroy')->name('cekIn.delete');
+            Route::get('/inHouse', '\App\Http\Controllers\Admin\CekInController@inHouse')->name('inHouse.iHouse');
+            Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
 
-            // //CekIn
-            // Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
 
-            // //Route Laundry
-            // Route::resource('laundry', '\App\Http\Controllers\Admin\LaundryController');
+            //Route Laundry
+            Route::get('/laundry/{laundry}/delete', '\App\Http\Controllers\Admin\LaundryController@destroy')->name('laundry.delete');
+            Route::resource('laundry', '\App\Http\Controllers\Admin\LaundryController');
 
-            // //Route Makanan
-            // Route::get('/makanan/{makanan}/delete', '\App\Http\Controllers\Admin\MakananController@destroy')->name('makanan.delete');
-            // Route::resource('makanan', '\App\Http\Controllers\Admin\MakananController');
+            //Route Makanan
+            Route::get('/makanan/{makanan}/delete', '\App\Http\Controllers\Admin\MakananController@destroy')->name('makanan.delete');
+            Route::resource('makanan', '\App\Http\Controllers\Admin\MakananController');
 
-            // //Route Kamar
-            // Route::get('/kamar/{kamar}/delete', '\App\Http\Controllers\Admin\KamarController@destroy')->name('kamar.delete');
-            // Route::resource('kamar', '\App\Http\Controllers\Admin\KamarController');
+            //Route PesanMakanan
+            Route::get('/pesanMakanan/{pesanMakanan}/delete', '\App\Http\Controllers\Admin\pesanMakananController@destroy')->name('pesanMakanan.delete');
+            Route::resource('pesanMakanan', '\App\Http\Controllers\Admin\pesanMakananController');
         }
     );
 });

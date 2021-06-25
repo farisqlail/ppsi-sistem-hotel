@@ -6,6 +6,7 @@ use App\Models\CekInCustomer;
 use App\Models\TypeKamar;
 use App\Models\Kamar;
 use App\Models\Customer;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,9 +15,14 @@ use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Paginator;
+use App\Http\Middleware;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class CekInController extends Controller
 {
+    use AuthenticatesUsers;
+
     /**
      * Display a listing of the resource.
      *
@@ -26,15 +32,22 @@ class CekInController extends Controller
     {
         $cekInCustomer = CekInCustomer::all();
 
-        return view('admin.cekIn.index', compact('cekInCustomer'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.cekIn.index', compact('cekInCustomer'));
+        } else if (Auth::user()->hasRole('karyawan')) {
+            return view('karyawan.cekIn.index', compact('cekInCustomer'));
+        }
     }
 
     public function inHouse(){
 
         $cekInCustomer = CekInCustomer::all();
         
-
-        return view('admin.cekIn.inHouse', compact('cekInCustomer'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.cekIn.inHouse', compact('cekInCustomer'));
+        } else if (Auth::user()->hasRole('karyawan')) {
+            return view('karyawan.cekIn.inHouse', compact('cekInCustomer'));
+        }
     }
 
     /**
@@ -47,7 +60,11 @@ class CekInController extends Controller
         $typeKamar = TypeKamar::all();
         $kamar = Kamar::all();
 
-        return view('admin.cekIn.create', compact('typeKamar', 'kamar'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.cekIn.create', compact('typeKamar', 'kamar'));
+        } else if (Auth::user()->hasROle(('karyawan'))) {
+            return view('karyawan.cekIn.create', compact('typeKamar', 'kamar'));
+        }
     }
 
     /**
@@ -105,7 +122,13 @@ class CekInController extends Controller
         $typeKamar = TypeKamar::all();
         $kamar = Kamar::all();
 
-        return view('admin.cekIn.edit', compact('cekIn', 'typeKamar', 'kamar'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.cekIn.edit', compact('cekIn', 'typeKamar', 'kamar'));
+            
+        } else if (Auth::user()->hasRole('karyawan')) {
+            return view('karyawan.cekIn.edit', compact('cekIn', 'typeKamar', 'kamar'));
+        }
+
     }
 
     /**

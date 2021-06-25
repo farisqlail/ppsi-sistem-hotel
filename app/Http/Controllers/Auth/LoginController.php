@@ -26,7 +26,7 @@ class LoginController extends Controller
             return redirect()->route('admin.hrd.dash');
 
         } elseif ($user->hasRole('karyawan')) {
-            return view('karyawan.dashboard');
+            return redirect()->route('admin.karyawan.dash');
 
         }
     

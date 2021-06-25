@@ -50,13 +50,38 @@ class HomeController extends Controller
 
     public function hrd(){
         $this->middleware('role:hrd');
+
+        $kamar = Kamar::all();
+        $kamarCount = $kamar->count();
+
+        $cekIn = CekInCustomer::all();
+        $cekInTrash = CekInCustomer::onlyTrashed()->get();
+        $cekInDash = CekInCustomer::orderBy('id', 'desc')->get();
+        $cekInCount = $cekIn->count();
+
+        $customer = Customer::all();
+        $customerCount = $customer->count();
+
+        $makanan = MenuMakanan::all();
+        $makananCount = $makanan->count();
         
-        return view('hrd.dashboard');
+        return view('hrd.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
     }
 
     public function karyawan(){
         $this->middleware('role:karyawan');
 
-        return view('karyawan.dashboard');
+        $kamar = Kamar::all();
+        $kamarCount = $kamar->count();
+
+        $cekIn = CekInCustomer::all();
+        $cekInTrash = CekInCustomer::onlyTrashed()->get();
+        $cekInDash = CekInCustomer::orderBy('id', 'desc')->get();
+        $cekInCount = $cekIn->count();
+
+        $makanan = MenuMakanan::all();
+        $makananCount = $makanan->count();
+
+        return view('karyawan.dashboard', ['kamarCount' => $kamarCount, 'cekInCount' => $cekInCount, 'makananCount' => $makananCount]);
     }
 }
