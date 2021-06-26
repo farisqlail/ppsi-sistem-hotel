@@ -8,6 +8,7 @@ use App\Models\CekInCustomer;
 use App\Models\MenuMakanan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->middleware('role:admin');
 
         $kamar = Kamar::all();
         // dd($kamar);
@@ -45,43 +45,13 @@ class HomeController extends Controller
         $makanan = MenuMakanan::all();
         $makananCount = $makanan->count();
 
-        return view('admin.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
-    }
+        if(Auth::user()->hasRole('admin')){
+            return view('admin.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
+        } elseif (Auth::user()->hasRole('karyawan')) {
+            return view('karyawan.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
+        } else if(Auth::user()->hasRole('hrd')){
+            return view('hrd.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
+        }
 
-    public function hrd(){
-        $this->middleware('role:hrd');
-
-        $kamar = Kamar::all();
-        $kamarCount = $kamar->count();
-
-        $cekIn = CekInCustomer::all();
-        $cekInTrash = CekInCustomer::onlyTrashed()->get();
-        $cekInDash = CekInCustomer::orderBy('id', 'desc')->get();
-        $cekInCount = $cekIn->count();
-
-        $customer = Customer::all();
-        $customerCount = $customer->count();
-
-        $makanan = MenuMakanan::all();
-        $makananCount = $makanan->count();
-        
-        return view('hrd.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
-    }
-
-    public function karyawan(){
-        $this->middleware('role:karyawan');
-
-        $kamar = Kamar::all();
-        $kamarCount = $kamar->count();
-
-        $cekIn = CekInCustomer::all();
-        $cekInTrash = CekInCustomer::onlyTrashed()->get();
-        $cekInDash = CekInCustomer::orderBy('id', 'desc')->get();
-        $cekInCount = $cekIn->count();
-
-        $makanan = MenuMakanan::all();
-        $makananCount = $makanan->count();
-
-        return view('karyawan.dashboard', ['kamarCount' => $kamarCount, 'cekInCount' => $cekInCount, 'makananCount' => $makananCount]);
     }
 }

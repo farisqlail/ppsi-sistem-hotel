@@ -73,7 +73,7 @@ Route::name('admin.')->group(function () {
                 return view('hrd.dashboard');
             })->name('hrd.dashboard');
 
-            Route::get('DashboardHrd', '\App\Http\Controllers\Admin\HomeController@hrd')->name('hrd.dash');
+            Route::get('DashboardHrd', '\App\Http\Controllers\Admin\HomeController@index')->name('hrd.dash');
 
             // //Routes Customer
             // Route::get('/customer/{customer}/delete', '\App\Http\Controllers\Admin\CustomerController@destroy')->name('customer.delete');
@@ -105,15 +105,16 @@ Route::name('admin.')->group(function () {
             // 'middleware' => ['auth', 'CheckRole:user']
         ],
         function () {
-            Route::get('/karyawan', function () {
-                return view('karyawan.dashboard');
-            })->name('karyawan.dashboard');
+            // Route::get('/karyawan', function () {
+            //     return view('karyawan.dashboard');
+            // })->name('karyawan.dashboard');
 
-            Route::get('DashboardKaryawan', '\App\Http\Controllers\Admin\HomeController@karyawan')->name('karyawan.dash');
+            Route::get('DashboardKaryawan', '\App\Http\Controllers\Admin\HomeController@index')->name('karyawan.dash');
 
             //CekIn
             Route::get('/cekIn/{cekIn}/delete', '\App\Http\Controllers\Admin\CekInController@destroy')->name('cekIn.delete');
             Route::get('/inHouse', '\App\Http\Controllers\Admin\CekInController@inHouse')->name('inHouse.iHouse');
+            Route::get('/cekOut', '\App\Http\Controllers\Admin\CekInController@cekOut')->name('karyawan.cekOut');
             Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
 
 

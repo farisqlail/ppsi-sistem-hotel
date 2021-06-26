@@ -28,7 +28,12 @@ class pesanMakananController extends Controller
         $menu = MenuMakanan::all();
         $cek = CekInCustomer::all();
 
-        return view('admin.pesanMakanan.index', compact('pesan', 'menu', 'cek'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.pesanMakanan.index', compact('pesan', 'menu', 'cek'));
+        } else if(AUth::user()->hasRole('karyawan')) {
+            return view('karyawan.pesanMakanan.index', compact('pesan', 'menu', 'cek'));
+        }
+
     }
 
     /**

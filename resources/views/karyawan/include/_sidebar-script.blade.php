@@ -15,7 +15,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="{{url('karyawan')}}">
+            <a class="nav-link" href="{{ url('/DashboardKaryawan') }}">
                 <i class="fas fa-fw fa-id-card"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -26,7 +26,7 @@
         </div>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ url('karyawan') }}" data-toggle="collapse" data-target="#ceInOut"
+            <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#ceInOut"
                 aria-expanded="true" aria-controls="ceInOut">
                 <i class="fas fa-fw fa-door-open"></i>
                 <span>Cek In & Cek Out</span>
@@ -36,6 +36,7 @@
                     <h6 class="collapse-header">Cek In & Cek Out</h6>
                     <a class="nav-link text-dark" href="{{ url('cekIn') }}">Cek In Customer</a>
                     <a class="nav-link text-dark" href="{{ url('inHouse') }}">Customer In House</a>
+                    <a class="nav-link text-dark" href="{{ url('cekOut') }}">Customer Out Customer</a>
                 </div>
             </div>
         </li>

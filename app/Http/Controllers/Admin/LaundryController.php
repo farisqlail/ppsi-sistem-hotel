@@ -25,7 +25,12 @@ class LaundryController extends Controller
     {
         $laundry = Laundry::all();
 
-        return view('admin.laundry.index', compact('laundry'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.laundry.index', compact('laundry'));
+        } elseif (Auth::user()->hasROle('karyawan')) {
+            return view('karyawan.laundry.index', compact('laundry'));
+        }
+
     }
 
     /**
@@ -37,7 +42,11 @@ class LaundryController extends Controller
     {
         $laundry = Laundry::all();
 
-        return view('admin.laundry.create', compact('laundry'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.laundry.create', compact('laundry'));
+        } else if(Auth::user()->hasRole('karyawan')) {
+            return view('karyawan.laundry.create', compact('laundry'));
+        }
     }
 
     /**
@@ -83,7 +92,11 @@ class LaundryController extends Controller
     {
         $laundry2 = Laundry::all();
 
-        return view('admin.laundry.edit', compact('laundry', 'laundry2'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.laundry.edit', compact('laundry', 'laundry2'));
+        } else if(Auth::user()->hasRole('karyawan')){
+            return view('karyawan.laundry.edit', compact('laundry', 'laundry2'));
+        }
     }
 
     /**

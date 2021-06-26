@@ -39,6 +39,16 @@ class CekInController extends Controller
         }
     }
 
+    public function cekOut(){
+        $cekInCustomer = CekInCustomer::all();
+
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.cekIn.cekOut', compact('cekInCustomer'));
+        } else if (Auth::user()->hasRole('karyawan')) {
+            return view('karyawan.cekIn.cekOut', compact('cekInCustomer'));
+        }
+    }
+
     public function inHouse(){
 
         $cekInCustomer = CekInCustomer::all();
