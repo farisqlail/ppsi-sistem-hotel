@@ -45,7 +45,11 @@ class pesanMakananController extends Controller
     {
         $pesan = pesanMakanan::all();
 
-        return view('admin.pesanMakanan.create', compact('pesan'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.pesanMakanan.create', compact('pesan'));
+        } else if (Auth::user()->hasRole('karyawan')) {
+            return view('karyawan.pesanMakanan.create', compact('pesan'));
+        }
     }
 
     /**
@@ -61,8 +65,11 @@ class pesanMakananController extends Controller
         $harga = str_replace('.', '', request('harga'));
 
         pesanMakanan::create([
-            'idMenu' => request('idMenu'),
-            'cekIn' => request('cekIn'),
+            'no_kamar' => request('no_kamar'),
+            'nama' => request('nama'),
+            'jumlah' => request('jumlah'),
+            'pesanan' => request('pesanan'),
+            'total' => request('total'),
             'harga' => $harga
         ]);
 
@@ -88,7 +95,11 @@ class pesanMakananController extends Controller
      */
     public function edit(pesanMakanan $pesanMakanan)
     {
-        return view('admin.pesanMakanan.edit', compact('pesanMakanan'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.pesanMakanan.edit', compact('pesanMakanan'));
+        } else if (Auth::user()->hasRole('karyawan')) {
+            return view('karyawan.pesanMakanan.edit', compact('pesanMakanan'));
+        }
     }
 
     /**
@@ -105,8 +116,11 @@ class pesanMakananController extends Controller
         $harga = str_replace('.', '', request('harga'));
 
         $pesanMakanan->update([
-            'idMenu' => request('idMenu'),
-            'cekIn' => request('cekIn'),
+            'no_kamar' => request('no_kamar'),
+            'nama' => request('nama'),
+            'jumlah' => request('jumlah'),
+            'pesanan' => request('pesanan'),
+            'total' => request('total'),
             'harga' => $harga
         ]);
 

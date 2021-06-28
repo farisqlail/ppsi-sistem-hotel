@@ -14,19 +14,35 @@
                 <form action="{{ route('admin.pesanMakanan.update', $pesanMakanan) }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
-                    <div class="form-group"> 
-                        <label for="">Id menu</label>
-                        <input type="text" name="idMenu" class="form-control" value="{{ $pesanMakanan->idMenu }}">
-                    </div>
 
-                    <div class="form-group">
-                        <label for="">Cek In</label>
-                        <input type="number" name="cekIn" class="form-control" value="{{ $pesanMakanan->cekIn }}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">No Kamar</label>
+                                <input type="text" name="no_kamar" class="form-control" value="{{ $pesanMakanan->no_kamar }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Nama Customer</label>
+                                <input type="text" name="nama" class="form-control" value="{{ $pesanMakanan->nama }}">
+                            </div>
+                        </div>
                     </div>
-
+    
                     <div class="form-group">
-                        <label for="">Harga</label>
-                        <input type="number" name="harga" class="form-control" value="{{ $pesanMakanan->harga }}">
+                        <label for="">Jumlah Pesanan</label>
+                        <input type="number" name="jumlah" class="form-control" value="{{ $pesanMakanan->jumlah }}">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="">Pesanan</label>
+                        <textarea name="pesanan" class="form-control" cols="30" rows="6">{{ $pesanMakanan->pesanan }}</textarea>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="">Total Harga</label>
+                        <input type="text" name="total" class="form-control" value="{{ $pesanMakanan->total }}">
                     </div>
 
                     <div class="form-group">

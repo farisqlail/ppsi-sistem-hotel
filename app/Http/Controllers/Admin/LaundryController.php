@@ -27,7 +27,7 @@ class LaundryController extends Controller
 
         if (Auth::user()->hasRole('admin')) {
             return view('admin.laundry.index', compact('laundry'));
-        } elseif (Auth::user()->hasROle('karyawan')) {
+        } elseif (Auth::user()->hasRole('karyawan')) {
             return view('karyawan.laundry.index', compact('laundry'));
         }
 
@@ -60,8 +60,8 @@ class LaundryController extends Controller
         Alert::success('Success', 'Berhasil menambah data laundry');
 
         Laundry::create([
-            'idKamar' => request('idKamar'),
-            'idcustomer' => request('idcustomer'),
+            'no_kamar' => request('no_kamar'),
+            'nama' => request('nama'),
             'jenisLaundri' => request('jenisLaundri'),
             'berat' => request('berat'),
             'total' => request('total')
@@ -111,9 +111,9 @@ class LaundryController extends Controller
         Alert::success('Success', 'Berhasil mengedit data laundry');
 
         $laundry->update([
-            'idKamar' => request('idKamar'),
-            'idcustomer' => request('idcustomer'),
-            'JenisLaundri' => request('JenisLaundri'),
+            'no_kamar' => request('no_kamar'),
+            'nama' => request('nama'),
+            'jenisLaundri' => request('jenisLaundri'),
             'berat' => request('berat'),
             'total' => request('total')
 

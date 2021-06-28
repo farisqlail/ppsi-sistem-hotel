@@ -15,9 +15,11 @@ class CreatePesanMakanansTable extends Migration
     {
         Schema::create('pesan_makanans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('idMenu')->index();
-            $table->foreignId('cekIn')->index();
-            $table->bigInteger('harga');
+            $table->string('no_kamar');
+            $table->string('nama');
+            $table->integer('jumlah');
+            $table->string('pesanan');
+            $table->bigInteger('total');
             $table->timestamps();
         });
     }

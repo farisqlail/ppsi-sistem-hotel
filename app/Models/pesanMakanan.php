@@ -10,8 +10,22 @@ class pesanMakanan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'idMenu',
-        'cekIn',
-        'harga'
+        'no_kamar',
+        'nama',
+        'jumlah',
+        'pesanan',
+        'total'
     ];
+
+    public function customer(){
+
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function menu(){
+
+        return $this->belongsTo(MenuMakanan::class);
+    }
+
+
 }

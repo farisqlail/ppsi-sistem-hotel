@@ -20,17 +20,21 @@
                     <table class="table table-bordered" id="tableMakanan" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>id Customer</th>
-                                <th>id Cek In</th>
-                                <th>Harga</th>
+                                <th>No Kamar</th>
+                                <th>Nama Customer</th>
+                                <th>Jumlah Pesanan</th>
+                                <th>Pesanan</th>
+                                <th>Total</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>id Customer</th>
-                                <th>id Cek In</th>
-                                <th>Harga</th>
+                                <th>No Kamar</th>
+                                <th>Nama Customer</th>
+                                <th>Jumlah Pesanan</th>
+                                <th>Pesanan</th>
+                                <th>Total</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -38,9 +42,11 @@
 
                             @foreach ($pesan as $psn)
                             <tr>
-                                <td>{{ $psn->idMenu }}</td>
-                                <td>{{ $psn->cekIn }}</td>
-                                <td>{{ $psn->harga }}</td>
+                                <td>{{ $psn->no_kamar }}</td>
+                                <td>{{ $psn->nama }}</td>
+                                <td>{{ $psn->jumlah }}</td>
+                                <td>{{ $psn->pesanan }}</td>
+                                <td>{{ $psn->total }}</td>
                                 
                                 <td>
                                     <a href="{{ route('admin.pesanMakanan.edit', $psn) }}" class="btn btn-primary">Edit</a>

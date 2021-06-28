@@ -6,6 +6,8 @@ use App\Models\Kamar;
 use App\Models\Customer;
 use App\Models\CekInCustomer;
 use App\Models\MenuMakanan;
+use App\Models\PesanMakanan;
+use App\Models\Laundry;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -45,12 +47,16 @@ class HomeController extends Controller
         $makanan = MenuMakanan::all();
         $makananCount = $makanan->count();
 
+        $pesanMakanan = PesanMakanan::latest()->paginate(2);
+
+        $laundry = Laundry::latest()->paginate(2);
+
         if(Auth::user()->hasRole('admin')){
-            return view('admin.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
+            return view('admin.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash', 'pesanMakanan', 'laundry'));
         } elseif (Auth::user()->hasRole('karyawan')) {
-            return view('karyawan.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
+            return view('karyawan.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash', 'pesanMakanan', 'laundry'));
         } else if(Auth::user()->hasRole('hrd')){
-            return view('hrd.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash'));
+            return view('hrd.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash', 'pesanMakanan', 'laundry'));
         }
 
     }

@@ -20,8 +20,8 @@
                     <table class="table table-bordered" id="tableLaundry" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>id Kamar</th>
-                                <th>id Customer</th>
+                                <th>No Kamar</th>
+                                <th>Nama Customer</th>
                                 <th>jenis Laundry</th>
                                 <th>berat</th>
                                 <th>Total</th>
@@ -30,8 +30,8 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>id Kamar</th>
-                                <th>id Customer</th>
+                                <th>No Kamar</th>
+                                <th>Nama Customer</th>
                                 <th>jenis Laundry</th>
                                 <th>berat</th>
                                 <th>Total</th>
@@ -42,9 +42,9 @@
 
                             @foreach ($laundry as $ldy)
                             <tr>
-                                <td>{{ $ldy->idKamar }}</td>
-                                <td>{{ $ldy->idcustomer }}</td>
-                                <td>{{ $ldy->JenisLaundri }}</td>
+                                <td>{{ $ldy->no_kamar }}</td>
+                                <td>{{ $ldy->nama }}</td>
+                                <td>{{ $ldy->jenisLaundri }}</td>
                                 <td>{{ $ldy->berat }}</td>
                                 <td>{{ $ldy->total }}</td>
                                 <td>

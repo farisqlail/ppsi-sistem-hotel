@@ -15,13 +15,13 @@
                     {{ csrf_field() }}
 
                     <div class="form-group"> 
-                        <label for="">id kamar</label>
-                        <input type="text" name="idKamar" class="form-control" placeholder="id Kamar">
+                        <label for="">No Kamar</label>
+                        <input type="text" name="no_kamar" class="form-control" placeholder="No Kamar">
                     </div>
 
                     <div class="form-group"> 
-                        <label for="">id Customer</label>
-                        <input type="text" name="idcustomer" class="form-control" placeholder="id Customer">
+                        <label for="">Nama Customer</label>
+                        <input type="text" name="nama" class="form-control" placeholder="Nama Customer">
                     </div>
 
                     <div class="form-group"> 

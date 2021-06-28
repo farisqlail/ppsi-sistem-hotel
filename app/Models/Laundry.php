@@ -11,8 +11,8 @@ class Laundry extends Model
     use HasFactory;
 
     protected $fillable = [
-        'idKamar',
-        'idcustomer',
+        'no_kamar',
+        'nama',
         'jenisLaundri',
         'berat',
         'total'

@@ -201,30 +201,24 @@
             <!-- Card Body -->
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <b>Pesanan no 1</b>
-                                <br><br>
-                                No Kamar : 201 <br>
-                                Atas Nama : Fadil <br>
-                                Jumlah Pesanan : 5 <br>
-                                List Pesanan : Nasi goreng, Es teh
+                    @php
+                        $no = 0;
+                    @endphp
+                    @foreach ($pesanMakanan as $item)
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <b>Pesanan no {{ $no++ }}</b>
+                                    <br><br>
+                                    No Kamar : {{ $item->no_kamar }} <br>
+                                    Atas Nama : {{ $item->nama }} <br>
+                                    Jumlah Pesanan : {{ $item->jumlah }} <br>
+                                    List Pesanan : {{ $item->pesanan }} <br>
+                                    Harga : {{ $item->total }}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <b>Pesanan no 1</b>
-                                <br><br>
-                                No Kamar : 201 <br>
-                                Atas Nama : Fadil <br>
-                                Jumlah Pesanan : 5 <br>
-                                List Pesanan : Nasi goreng, Es teh
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -251,28 +245,22 @@
             <!-- Card Body -->
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <b>Laundry no 1</b>
-                                <br><br>
-                                No Kamar : 201 <br>
-                                Atas Nama : Fadil <br>
-                                Jumlah KG : 5Kg <br>
+                    @php
+                        $no = 0;
+                    @endphp
+                    @foreach ($laundry as $item)
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <b>Laundry no {{ $no++ }}</b>
+                                    <br><br>
+                                    No Kamar : {{ $item->no_kamar }} <br>
+                                    Atas Nama : {{ $item->nama }} <br>
+                                    Jumlah KG : {{ $item->berat }}Kg <br>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <b>Pesanan no 1</b>
-                                <br><br>
-                                No Kamar : 201 <br>
-                                Atas Nama : Fadil <br>
-                                Jumlah KG : 5Kg <br>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -280,16 +268,16 @@
 
 
 
-        </div>
-    @endsection
+    </div>
+@endsection
 
-    @push('script')
+@push('script')
 
-        <script>
-            $(document).ready(function() {
-                $('#tableCekIn').DataTable();
-                $('#tableCekOut').DataTable();
-            });
-        </script>
+    <script>
+        $(document).ready(function() {
+            $('#tableCekIn').DataTable();
+            $('#tableCekOut').DataTable();
+        });
+    </script>
 
-    @endpush
+@endpush

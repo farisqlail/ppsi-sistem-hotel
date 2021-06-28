@@ -17,17 +17,17 @@
 
                     <div class="form-group"> 
                         <label for="">id Kamar</label>
-                        <input type="text" name="idKamar" class="form-control" value="{{ $laundry->idKamar }}">
+                        <input type="text" name="no_kamar" class="form-control" value="{{ $laundry->no_kamar }}">
                     </div> 
 
                     <div class="form-group"> 
                         <label for="">id Customer</label>
-                        <input type="text" name="idcustomer" class="form-control" value="{{ $laundry->idcustomer }}">
+                        <input type="text" name="nama" class="form-control" value="{{ $laundry->nama }}">
                     </div> 
 
                     <div class="form-group"> 
                         <label for="">Jenis Laundry</label>
-                        <input type="text" name="JenisLaundri" class="form-control" value="{{ $laundry->JenisLaundri }}">
+                        <input type="text" name="jenisLaundri" class="form-control" value="{{ $laundry->jenisLaundri }}">
                     </div> 
 
                     <div class="form-group"> 
