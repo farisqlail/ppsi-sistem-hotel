@@ -60,6 +60,23 @@
                     </div>
                 </div>
             </div>
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    Jumlah Pesanan</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pmCount }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="row">
@@ -204,21 +221,27 @@
                     @php
                         $no = 0;
                     @endphp
-                    @foreach ($pesanMakanan as $item)
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <b>Pesanan no {{ $no++ }}</b>
-                                    <br><br>
-                                    No Kamar : {{ $item->no_kamar }} <br>
-                                    Atas Nama : {{ $item->nama }} <br>
-                                    Jumlah Pesanan : {{ $item->jumlah }} <br>
-                                    List Pesanan : {{ $item->pesanan }} <br>
-                                    Harga : {{ $item->total }}
+                    @if ($pesanMakanan == null)
+                        @foreach ($pesanMakanan as $item)
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <b>Pesanan no {{ $no++ }}</b>
+                                        <br><br>
+                                        No Kamar : {{ $item->no_kamar }} <br>
+                                        Atas Nama : {{ $item->nama }} <br>
+                                        Jumlah Pesanan : {{ $item->jumlah }} <br>
+                                        List Pesanan : {{ $item->pesanan }} <br>
+                                        Harga : {{ $item->total }}
+                                    </div>
                                 </div>
                             </div>
+                        @endforeach
+                    @else
+                        <div class="mx-auto">
+                            <h3>Belum ada pesanan</h3>
                         </div>
-                    @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -248,19 +271,25 @@
                     @php
                         $no = 0;
                     @endphp
-                    @foreach ($laundry as $item)
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <b>Laundry no {{ $no++ }}</b>
-                                    <br><br>
-                                    No Kamar : {{ $item->no_kamar }} <br>
-                                    Atas Nama : {{ $item->nama }} <br>
-                                    Jumlah KG : {{ $item->berat }}Kg <br>
+                    @if ($laundry == null)
+                        @foreach ($laundry as $item)
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <b>Laundry no {{ $no++ }}</b>
+                                        <br><br>
+                                        No Kamar : {{ $item->no_kamar }} <br>
+                                        Atas Nama : {{ $item->nama }} <br>
+                                        Jumlah KG : {{ $item->berat }}Kg <br>
+                                    </div>
                                 </div>
                             </div>
+                        @endforeach
+                    @else
+                        <div class="mx-auto">
+                            <h3>Belum ada pesanan Laundry</h3>
                         </div>
-                    @endforeach
+                    @endif
                 </div>
             </div>
         </div>

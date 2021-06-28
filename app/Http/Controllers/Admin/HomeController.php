@@ -48,13 +48,14 @@ class HomeController extends Controller
         $makananCount = $makanan->count();
 
         $pesanMakanan = PesanMakanan::latest()->paginate(2);
+        $pmCount = $pesanMakanan->count();
 
         $laundry = Laundry::latest()->paginate(2);
 
         if(Auth::user()->hasRole('admin')){
             return view('admin.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash', 'pesanMakanan', 'laundry'));
         } elseif (Auth::user()->hasRole('karyawan')) {
-            return view('karyawan.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash', 'pesanMakanan', 'laundry'));
+            return view('karyawan.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash', 'pesanMakanan', 'laundry', 'pmCount'));
         } else if(Auth::user()->hasRole('hrd')){
             return view('hrd.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash', 'pesanMakanan', 'laundry'));
         }
