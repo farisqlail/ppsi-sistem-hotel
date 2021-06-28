@@ -15,10 +15,39 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ url('/DashboardHrd') }}">
                 <i class="fas fa-fw fa-id-card"></i>
                 <span>Dashboard</span></a>
         </li>
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ url('customer') }}">
+                <i class="fas fa-fw fa-id-card"></i>
+                <span>Customer</span></a>
+        </li>
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Transaksi
+                </div>
+        
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#ceInOut"
+                        aria-expanded="true" aria-controls="ceInOut">
+                        <i class="fas fa-fw fa-door-open"></i>
+                        <span>Cek In & Cek Out</span>
+                    </a>
+                    <div id="ceInOut" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Cek In & Cek Out</h6>
+                            <a class="nav-link text-dark" href="{{ url('cekIn') }}">Cek In Customer</a>
+                            <a class="nav-link text-dark" href="{{ url('inHouse') }}">Customer In House</a>
+                            <a class="nav-link text-dark" href="{{ url('cekOut') }}">Customer Out Customer</a>
+                        </div>
+                    </div>
+                </li>
+
 
     </ul>
     <!-- End of Sidebar -->

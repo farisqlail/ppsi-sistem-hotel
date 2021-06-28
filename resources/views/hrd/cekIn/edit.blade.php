@@ -1,6 +1,6 @@
-@extends('admin.layouts')
+@extends('hrd.layouts')
 
-@section('content-admin')
+@section('content-hrd')
 
      <div class="container-fluid">
         <h1 class="h3 mb-2 text-gray-800">Cek In Customer</h1>

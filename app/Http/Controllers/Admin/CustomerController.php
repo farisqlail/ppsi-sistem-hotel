@@ -23,7 +23,11 @@ class CustomerController extends Controller
     {
         $customer = Customer::all();
 
-        return view('admin.customer.index', compact('customer'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.customer.index', compact('customer'));
+        } else if(Auth::user()->hasRole('hrd')){
+            return view('hrd.customer.index', compact('customer'));
+        }
     }
 
     /**
@@ -33,7 +37,11 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('admin.customer.create');
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.customer.create');
+        } else if(Auth::user()->hasRole('hrd')){
+            return view('hrd.customer.create');
+        }
     }
 
     /**
@@ -74,7 +82,12 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        return view('admin.customer.edit', compact('customer'));
+        if (Auth::user()->hasRole('admin')) {
+            return view('admin.customer.edit', compact('customer'));
+        } else if(Auth::user()->hasRole('hrd')){
+            return view('hrd.customer.edit', compact('customer'));
+        }
+        
     }
 
     /**

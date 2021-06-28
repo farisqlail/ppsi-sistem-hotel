@@ -76,22 +76,13 @@ Route::name('admin.')->group(function () {
             Route::get('DashboardHrd', '\App\Http\Controllers\Admin\HomeController@index')->name('hrd.dash');
 
             // //Routes Customer
-            // Route::get('/customer/{customer}/delete', '\App\Http\Controllers\Admin\CustomerController@destroy')->name('customer.delete');
-            // Route::resource('customer', '\App\Http\Controllers\Admin\CustomerController');
+            Route::get('/customer/{customer}/delete', '\App\Http\Controllers\Admin\CustomerController@destroy')->name('customer.delete');
+            Route::resource('customer', '\App\Http\Controllers\Admin\CustomerController');
 
-            // //CekIn
-            // Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
-
-            // //Route Laundry
-            // Route::resource('laundry', '\App\Http\Controllers\Admin\LaundryController');
-
-            // //Route Makanan
-            // Route::get('/makanan/{makanan}/delete', '\App\Http\Controllers\Admin\MakananController@destroy')->name('makanan.delete');
-            // Route::resource('makanan', '\App\Http\Controllers\Admin\MakananController');
-
-            // //Route Kamar
-            // Route::get('/kamar/{kamar}/delete', '\App\Http\Controllers\Admin\KamarController@destroy')->name('kamar.delete');
-            // Route::resource('kamar', '\App\Http\Controllers\Admin\KamarController');
+            // Cek In
+            Route::get('/cekIn/{cekIn}/delete', '\App\Http\Controllers\Admin\CekInController@destroy')->name('cekIn.delete');
+            Route::get('/inHouse', '\App\Http\Controllers\Admin\CekInController@inHouse')->name('inHouse.iHouse');
+            Route::resource('cekIn', '\App\Http\Controllers\Admin\CekInController');
 
         }
     );

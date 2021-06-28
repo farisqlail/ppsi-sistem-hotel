@@ -40,6 +40,7 @@ class HomeController extends Controller
         $cekInTrash = CekInCustomer::onlyTrashed()->get();
         $cekInDash = CekInCustomer::orderBy('id', 'desc')->get();
         $cekInCount = $cekIn->count();
+        $csOut = $cekInTrash->count();
 
         $customer = Customer::all();
         $customerCount = $customer->count();
@@ -57,7 +58,7 @@ class HomeController extends Controller
         } elseif (Auth::user()->hasRole('karyawan')) {
             return view('karyawan.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash', 'pesanMakanan', 'laundry', 'pmCount'));
         } else if(Auth::user()->hasRole('hrd')){
-            return view('hrd.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash', 'pesanMakanan', 'laundry'));
+            return view('hrd.dashboard', compact('kamarCount', 'cekInCount', 'customerCount', 'cekInDash', 'makananCount', 'cekInTrash', 'pesanMakanan', 'laundry', 'csOut'));
         }
 
     }

@@ -1,6 +1,6 @@
-@extends('admin.layouts')
+@extends('hrd.layouts')
 
-@section('content-admin')
+@section('content-hrd')
     <div class="container-fluid">
 
         <!-- Page Heading -->

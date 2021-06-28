@@ -36,6 +36,8 @@ class CekInController extends Controller
             return view('admin.cekIn.index', compact('cekInCustomer'));
         } else if (Auth::user()->hasRole('karyawan')) {
             return view('karyawan.cekIn.index', compact('cekInCustomer'));
+        } else if(Auth::user()->hasRole('hrd')){
+            return view('hrd.cekIn.index', compact('cekInCustomer'));
         }
     }
 
@@ -46,6 +48,8 @@ class CekInController extends Controller
             return view('admin.cekIn.cekOut', compact('cekInCustomer'));
         } else if (Auth::user()->hasRole('karyawan')) {
             return view('karyawan.cekIn.cekOut', compact('cekInCustomer'));
+        } else if(Auth::user()->hasRole('hrd')){
+            return view('hrd.cekIn.cekOut', compact('cekInCustomer'));
         }
     }
 
@@ -57,6 +61,8 @@ class CekInController extends Controller
             return view('admin.cekIn.inHouse', compact('cekInCustomer'));
         } else if (Auth::user()->hasRole('karyawan')) {
             return view('karyawan.cekIn.inHouse', compact('cekInCustomer'));
+        } else if (Auth::user()->hasRole('hrd')) {
+            return view('hrd.cekIn.inHouse', compact('cekInCustomer'));
         }
     }
 
@@ -72,8 +78,13 @@ class CekInController extends Controller
 
         if (Auth::user()->hasRole('admin')) {
             return view('admin.cekIn.create', compact('typeKamar', 'kamar'));
-        } else if (Auth::user()->hasROle(('karyawan'))) {
+
+        } else if (Auth::user()->hasRole(('karyawan'))) {
             return view('karyawan.cekIn.create', compact('typeKamar', 'kamar'));
+
+        } else if (Auth::user()->hasRole(('hrd'))) {
+            return view('hrd.cekIn.create', compact('typeKamar', 'kamar'));
+
         }
     }
 
@@ -137,6 +148,8 @@ class CekInController extends Controller
             
         } else if (Auth::user()->hasRole('karyawan')) {
             return view('karyawan.cekIn.edit', compact('cekIn', 'typeKamar', 'kamar'));
+        }  else if (Auth::user()->hasRole('hrd')) {
+            return view('hrd.cekIn.edit', compact('cekIn', 'typeKamar', 'kamar'));
         }
 
     }
