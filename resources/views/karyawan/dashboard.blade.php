@@ -219,9 +219,13 @@
             <div class="card-body">
                 <div class="row">
                     @php
-                        $no = 0;
+                        $no = 1;
                     @endphp
                     @if ($pesanMakanan == null)
+                        <div class="mx-auto">
+                            <h3>Belum ada pesanan</h3>
+                        </div>
+                    @else
                         @foreach ($pesanMakanan as $item)
                             <div class="col-md-6">
                                 <div class="card">
@@ -237,10 +241,6 @@
                                 </div>
                             </div>
                         @endforeach
-                    @else
-                        <div class="mx-auto">
-                            <h3>Belum ada pesanan</h3>
-                        </div>
                     @endif
                 </div>
             </div>
@@ -269,9 +269,13 @@
             <div class="card-body">
                 <div class="row">
                     @php
-                        $no = 0;
+                        $no = 1;
                     @endphp
                     @if ($laundry == null)
+                        <div class="mx-auto">
+                            <h3>Belum ada pesanan Laundry</h3>
+                        </div>
+                    @else
                         @foreach ($laundry as $item)
                             <div class="col-md-6">
                                 <div class="card">
@@ -285,10 +289,6 @@
                                 </div>
                             </div>
                         @endforeach
-                    @else
-                        <div class="mx-auto">
-                            <h3>Belum ada pesanan Laundry</h3>
-                        </div>
                     @endif
                 </div>
             </div>
